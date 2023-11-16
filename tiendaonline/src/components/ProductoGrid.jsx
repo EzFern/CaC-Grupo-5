@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 
-export const DetallesProducto = ({id,categoria,titulo,img,descripcion,combo,ingredientes,precio,descuento,stock,destacado}) => {
+export const ProductoGrid = ({id,categoria,titulo,img,descripcion,combo,ingredientes,precio,descuento,stock,destacado}) => {
   const [cantidad, setCantidad] = useState(1)
 
   const sumarProducto = () => {
