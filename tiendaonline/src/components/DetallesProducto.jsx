@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 
-export const DetallesProducto = ({id,titulo,img,descripcion,ingredientes,precio,stock,destacado}) => {
+export const DetallesProducto = ({id,categoria,titulo,img,descripcion,combo,ingredientes,precio,descuento,stock,destacado}) => {
   const [cantidad, setCantidad] = useState(1)
 
   const sumarProducto = () => {
@@ -11,6 +11,7 @@ export const DetallesProducto = ({id,titulo,img,descripcion,ingredientes,precio,
     setCantidad(cantidad-1)
   }
 
+  /* TOAST BOTON CARRITO */
   const toastTrigger = document.getElementById('liveToastBtn')
   const toastLiveExample = document.getElementById('liveToast')
 
@@ -20,39 +21,49 @@ export const DetallesProducto = ({id,titulo,img,descripcion,ingredientes,precio,
       toastBootstrap.show()
     })
   }
+  /* FIN TOAST BOTON CARRITO */  
 
   return (
     <>    
-    <div class="card mb-3">
-        <img src={img} class="card-img-top" alt={titulo} />
-        <div class="card-body">
-          <h5 class="card-title">{titulo}</h5>
-          <p class="card-text">{destacado ? "Producto destacado!":""}</p>
-          <p class="card-text">Descripción: {descripcion}</p>
-          <p class="card-text">Ingredientes: {ingredientes}</p>           
-          <p class="card-text">Precio: {precio}</p>
-          {/* <p class="card-text"><small class="text-body-secondary">Cantidad disponible: {stock}</small></p>           */}
-          <p class="card-text">Cantidad a comprar: {cantidad} de {stock} disponibles</p>
+    <div className="card mb-3 border-0">
+        <img src={img} className="card-img-top" style={{"borderRadius": "20px"}} alt={titulo} />
+        <div className="card-body">
+          <h2 className="card-title">{titulo}</h2>
+          <p className="card-text">{combo!="" ? `+ ${combo}`:""}</p>
+          {/* <p className="card-text">{destacado ? "Producto destacado!":""}</p> */}
+          <p className="card-text">Descripción: {descripcion}</p>          
+          <p className="card-text">Ingredientes: {ingredientes}</p>
+          {descuento>0 ? <span className="badge bg-light text-success fs-5">-{descuento}% OFF</span>:""}
+          {/* {descuento>0 ? <span className="btn btn-outline-success disabled fs-5">PROMO: {descuento} % de descuento!</span>:""} */}
+          <p className="card-text fs-1 fw-bold text-danger">{descuento>0 ? `$${(precio-(precio*descuento/100))*cantidad}`:`$${precio*cantidad}`}</p>
+          {/* <p className="card-text"><small className="text-body-secondary">Cantidad disponible: {stock}</small></p> */}         
+          
+          <h4 className="card-text"> Cantidad a comprar: <span className="badge text-bg-success"><span className="badge text-bg-light">{cantidad}</span> de {stock}</span></h4>
+                    
           <div className="card-body d-flex justify-content-center gap-2">
-            <button type="button" class="btn btn-danger" onClick={restarProducto} disabled={cantidad==1?true:false}>Quitar</button>
-            <button type="button" class="btn btn-success" onClick={sumarProducto} disabled={cantidad>=stock?true:false}>Agregar</button>          
-          </div>         
-          <div className="card-body d-flex justify-content-center gap-2">
-            <button type="button" class="btn btn-primary" id="liveToastBtn">Agregar al carrito</button>
-            <div class="toast-container position-fixed bottom-0 p-3">
-              <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                  {/* <img src="..." class="rounded me-2" alt="..."/> */}
-                  <strong class="me-auto">Carrito de compras</strong>
-                  <small>Tienda Grupo 5</small>
-                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">
-                  Agregaste {cantidad} {titulo} a tu carrito de compras!
-                </div>
-              </div>
-            </div>            
+            <button type="button" className="btn btn-danger btn-sm" onClick={restarProducto} disabled={cantidad==1?true:false}>Quitar</button>
+            <button type="button" className="btn btn-success btn-sm" onClick={sumarProducto} disabled={cantidad>=stock?true:false}>Agregar</button>          
           </div>
+
+          {/* BOTON CARRITO TOAST*/}
+          <div className="d-grid">
+            <button type="button" className="btn btn-danger btn-lg" id="liveToastBtn">Agregar al carrito</button>
+          </div>
+          <div className="toast-container position-fixed bottom-0 p-3">
+            <div id="liveToast" className="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div className="toast-header">
+                {/* <img src="..." className="rounded me-2" alt="..."/> */}
+                <strong className="me-auto">Carrito de compras</strong>
+                <small>Tienda Grupo 5</small>
+                <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div className="toast-body">
+                Agregaste {cantidad} {titulo} a tu carrito de compras!
+              </div>
+            </div>
+          </div>
+          {/* FIN BOTON CARRITO */}          
+          
         </div>
     </div>
     </>
