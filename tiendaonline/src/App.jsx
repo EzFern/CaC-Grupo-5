@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      {Productos.map(producto=><DetallesProducto key={producto.id} title={producto.title} img={producto.img} description={producto.description} price={producto.price} sku={producto.sku} stock={producto.stock} />)}
+      {Productos.map(producto=><DetallesProducto key={producto.id} titulo={producto.titulo} img={producto.img} descripcion={producto.descripcion} ingredientes={producto.ingredientes} precio={producto.precio} stock={producto.stock} destacado={producto.destacado}/>)}
     </>
   )
 }

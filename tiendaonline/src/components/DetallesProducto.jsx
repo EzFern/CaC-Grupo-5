@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 
-export const DetallesProducto = ({title,img,description,price,sku,stock}) => {
+export const DetallesProducto = ({id,titulo,img,descripcion,ingredientes,precio,stock,destacado}) => {
   const [cantidad, setCantidad] = useState(1)
 
   const sumarProducto = () => {
@@ -26,12 +26,12 @@ export const DetallesProducto = ({title,img,description,price,sku,stock}) => {
     <div class="card mb-3">
         <img src={img} class="card-img-top" alt={title} />
         <div class="card-body">
-          <h5 class="card-title">{title}</h5>
-          <p class="card-text">Descripción: {description}</p>
-          <p class="card-text"><small class="text-body-secondary">SKU: {sku}</small></p>
-          <p class="card-text">Precio: {price}</p>
-          <p class="card-text"><small class="text-body-secondary">Cantidad disponible: {stock}</small></p>
-          
+          <h5 class="card-title">{titulo}</h5>
+          <p class="card-text">{destacado ? "Producto destacado!":""}</p>
+          <p class="card-text">Descripción: {descripcion}</p>
+          <p class="card-text">Ingredientes: {ingredientes}</p>           
+          <p class="card-text">Precio: {precio}</p>
+          <p class="card-text"><small class="text-body-secondary">Cantidad disponible: {stock}</small></p>          
           <p class="card-text">Cantidad a comprar: {cantidad}</p>
           <div className="card-body d-flex justify-content-center gap-2">
             <button type="button" class="btn btn-danger" onClick={restarProducto} isDisabled={cantidad==1?true:false}>Quitar</button>
@@ -39,7 +39,6 @@ export const DetallesProducto = ({title,img,description,price,sku,stock}) => {
           </div>         
           <div className="card-body d-flex justify-content-center gap-2">
             <button type="button" class="btn btn-primary" id="liveToastBtn">Comprar</button>
-
             <div class="toast-container position-fixed bottom-0 end-0 p-3">
               <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
@@ -53,7 +52,6 @@ export const DetallesProducto = ({title,img,description,price,sku,stock}) => {
                 </div>
               </div>
             </div>
-
             <a href="#" class="btn btn-primary">Agregar al carrito</a>
           </div>
         </div>
