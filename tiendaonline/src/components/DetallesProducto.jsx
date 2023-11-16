@@ -31,8 +31,8 @@ export const DetallesProducto = ({id,titulo,img,descripcion,ingredientes,precio,
           <p class="card-text">Descripción: {descripcion}</p>
           <p class="card-text">Ingredientes: {ingredientes}</p>           
           <p class="card-text">Precio: {precio}</p>
-          <p class="card-text"><small class="text-body-secondary">Cantidad disponible: {stock}</small></p>          
-          <p class="card-text">Cantidad a comprar: {cantidad}</p>
+          {/* <p class="card-text"><small class="text-body-secondary">Cantidad disponible: {stock}</small></p>           */}
+          <p class="card-text">Cantidad a comprar: {cantidad} de {stock} disponibles</p>
           <div className="card-body d-flex justify-content-center gap-2">
             <button type="button" class="btn btn-danger" onClick={restarProducto} disabled={cantidad==1?true:false}>Quitar</button>
             <button type="button" class="btn btn-success" onClick={sumarProducto} disabled={cantidad>=stock?true:false}>Agregar</button>          
