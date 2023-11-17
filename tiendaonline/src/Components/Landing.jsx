@@ -1,7 +1,7 @@
-import './App.css'
-import { ProductoDetalles } from './components/ProductoDetalles'
-import { CombosImperdibles } from './components/CombosImperdibles'
-import { Productos } from "./Utils/Productos"
+import "./Landing.css"
+import { DetallesProducto } from './DetallesProducto'
+import { CombosImperdibles } from './CombosImperdibles'
+import { Productos } from "../Utils/Productos"
 
 function Landing() {
 
