@@ -1,13 +1,21 @@
-import './App.css'
-import Landing from './Components/Landing.jsx'
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Landing } from './Components/Landing.jsx';
+import { DetallesProducto } from './Components/DetallesProducto.jsx';
+import { Carrito } from './Components/Carrito.jsx';
+import { ResetCarrito } from './Components/ResetCarrito.jsx';
 
 function App() {
-
   return (
-    <>
-    <Landing />
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/detalles/:id" element={<DetallesProducto />} />
+        <Route path="/carrito" element={<Carrito />} />
+        <Route path="/carrito/reset" element={<ResetCarrito />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
