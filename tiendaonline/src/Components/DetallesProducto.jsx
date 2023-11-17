@@ -26,7 +26,7 @@ export const DetallesProducto = ({ id, categoria, titulo, img, descripcion, comb
   return (
     <>
       <div className="card mb-3 border-0">
-        <img src={img} className="card-img-top" alt={titulo} />
+        <img src={img} className="card-img-top" alt={titulo} style={{ maxWidth: '50%', margin: 'auto', display: 'block', borderTopLeftRadius: '15px', borderTopRightRadius: '15px' }}/>
         <div className="card-body">
           <h5 className="card-title">{titulo}</h5>
           <p className="card-text">{combo != "" ? `+ ${combo}` : ""}</p>
