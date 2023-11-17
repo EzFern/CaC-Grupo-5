@@ -3,7 +3,7 @@
 export const productos = {
     hamburguesas: [
         { 
-            id: '1',      
+            id: 'H1',      
             titulo: 'Hamburguesa con queso',
             img: new URL('https://www.toque.com.ar/sistema/uploads/571/articulos/693526547812.jpeg'),
             descripcion: 'Una hamburguesa clásica.',
@@ -15,7 +15,7 @@ export const productos = {
             imperdible: true
         },
         {
-            id: '2',
+            id: 'H2',
             titulo: 'Hamburguesa de Pollo',
             img: new URL('https://www.toque.com.ar/sistema/uploads/571/articulos/693526547812.jpeg'),
             descripcion: 'Una deliciosa hamburguesa de pollo.',
@@ -27,7 +27,7 @@ export const productos = {
             imperdible: false
         },
         {
-            id: '3',
+            id: 'H3',
             titulo: 'Hamburguesa Vegana',
             img: new URL('https://www.toque.com.ar/sistema/uploads/571/articulos/693526547812.jpeg'),
             descripcion: 'Una opción vegana y saludable.',
@@ -39,7 +39,7 @@ export const productos = {
             imperdible: true
         },
         {
-            id: '4',
+            id: 'H4',
             titulo: 'Hamburguesa Tex-Mex',
             img: new URL('https://www.toque.com.ar/sistema/uploads/571/articulos/693526547812.jpeg'),
             descripcion: 'Una explosión de sabores inspirada en la cocina tex-mex.',
@@ -51,7 +51,7 @@ export const productos = {
             imperdible: false
         },
         {
-            id: '5',
+            id: 'H5',
             titulo: 'Hamburguesa BBQ Bacon',
             img: new URL('https://www.toque.com.ar/sistema/uploads/571/articulos/693526547812.jpeg'),
             descripcion: 'Perfecta para los amantes del sabor ahumado y el bacon crujiente.',
@@ -63,7 +63,7 @@ export const productos = {
             imperdible: true
         },
         {
-            id: '6',
+            id: 'H6',
             titulo: 'Hamburguesa Hawaiana',
             img: new URL('https://www.toque.com.ar/sistema/uploads/571/articulos/693526547812.jpeg'),
             descripcion: 'Una opción tropical con piña y salsa agridulce.',
@@ -75,7 +75,7 @@ export const productos = {
             imperdible: false
         },
         {
-            id: '7',
+            id: 'H7',
             titulo: 'Hamburguesa Deluxe',
             img: new URL('https://www.toque.com.ar/sistema/uploads/571/articulos/693526547812.jpeg'),
             descripcion: 'Una hamburguesa gourmet con ingredientes premium.',
@@ -87,7 +87,7 @@ export const productos = {
             imperdible: true
         },
         {
-            id: '8',
+            id: 'H8',
             titulo: 'Hamburguesa de Salmón',
             img: new URL('https://www.toque.com.ar/sistema/uploads/571/articulos/693526547812.jpeg'),
             descripcion: 'Una opción saludable con salmón fresco.',
@@ -102,7 +102,7 @@ export const productos = {
     ],
     pizzas: [
             {
-                id: '1',
+                id: 'P1',
                 titulo: 'Pizza Margarita',
                 img: new URL('https://example.com/pizza1.jpeg'),
                 descripcion: 'Una clásica pizza italiana con tomate, mozzarella y albahaca.',
@@ -114,7 +114,7 @@ export const productos = {
                 imperdible: true
             },
             {
-                id: '2',
+                id: 'P2',
                 titulo: 'Pizza Pepperoni',
                 img: new URL('https://example.com/pizza2.jpeg'),
                 descripcion: 'Una deliciosa pizza con abundante pepperoni.',
@@ -126,7 +126,7 @@ export const productos = {
                 imperdible: true
             },
             {
-                id: '3',
+                id: 'P3',
                 titulo: 'Pizza Vegetariana',
                 img: new URL('https://example.com/pizza3.jpeg'),
                 descripcion: 'Una opción saludable con variedad de vegetales frescos.',
@@ -138,7 +138,7 @@ export const productos = {
                 imperdible: true
             },
             {
-                id: '4',
+                id: 'P4',
                 titulo: 'Pizza BBQ Chicken',
                 img: new URL('https://example.com/pizza4.jpeg'),
                 descripcion: 'Una pizza con pollo a la barbacoa y salsa ranch.',
@@ -150,7 +150,7 @@ export const productos = {
                 imperdible: false
             },
             {
-                id: '5',
+                id: 'P5',
                 titulo: 'Pizza Hawaiana',
                 img: new URL('https://example.com/pizza5.jpeg'),
                 descripcion: 'Una combinación tropical con piña y jamón.',
@@ -162,7 +162,7 @@ export const productos = {
                 imperdible: false
             },
             {
-                id: '6',
+                id: 'P6',
                 titulo: 'Pizza Cuatro Quesos',
                 img: new URL('https://example.com/pizza6.jpeg'),
                 descripcion: 'Una pizza gourmet con una mezcla de cuatro quesos.',
@@ -174,7 +174,7 @@ export const productos = {
                 imperdible: true
             },
             {
-                id: '7',
+                id: 'P7',
                 titulo: 'Pizza BBQ Vegana',
                 img: new URL('https://example.com/pizza7.jpeg'),
                 descripcion: 'Una opción vegana con pollo vegetal y salsa BBQ.',
@@ -186,7 +186,7 @@ export const productos = {
                 imperdible: false
             },
             {
-                id: '8',
+                id: 'P8',
                 titulo: 'Pizza Capricciosa',
                 img: new URL('https://example.com/pizza8.jpeg'),
                 descripcion: 'Una pizza clásica con alcachofas y jamón.',
