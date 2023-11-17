@@ -1,67 +1,88 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { productos } from "../Utils/Database";
 
-export const CombosImperdibles = ({ Productos }) => {
-  const [cantidades, setCantidades] = useState(Array(Productos.length).fill(1));
-  const [showToasts, setShowToasts] = useState(Array(Productos.length).fill(false));
+export const CombosImperdibles = () => {
+  const hamburguesas = productos.hamburguesas;
+  // Filtrar productos imperdibles
+  const hamburguesasImperdibles = hamburguesas.filter((item) => item.imperdible);
+
+  // Estado para las cantidades
+  const [cantidades, setCantidades] = useState(Array(hamburguesasImperdibles.length).fill(1));
+
+  // Estado para las hamburguesas aleatorias
+  const [hamburguesasImperdiblesAleatorias, setHamburguesasImperdiblesAleatorias] = useState(() =>
+    hamburguesasImperdibles.sort(() => Math.random() - 0.5).slice(0, 4)
+  );
 
   const sumarProducto = (index) => {
     const nuevaCantidades = [...cantidades];
     nuevaCantidades[index] += 1;
     setCantidades(nuevaCantidades);
-    guardarEnLocalStorage(index, nuevaCantidades[index]);
   };
 
   const restarProducto = (index) => {
     const nuevaCantidades = [...cantidades];
     nuevaCantidades[index] = Math.max(1, nuevaCantidades[index] - 1);
     setCantidades(nuevaCantidades);
-    guardarEnLocalStorage(index, nuevaCantidades[index]);
   };
 
   const handleAgregarCarrito = (index) => {
-    setShowToasts((prevToasts) => {
-      const newToasts = [...prevToasts];
-      newToasts[index] = true;
-      return newToasts;
-    });
+    // Implementa la lógica del toast aquí
+    const toastTrigger = document.getElementById(`liveToastBtn${index}`);
+    const toastLiveExample = document.getElementById(`liveToast${index}`);
 
-    setTimeout(() => {
-      setShowToasts((prevToasts) => {
-        const newToasts = [...prevToasts];
-        newToasts[index] = false;
-        return newToasts;
-      });
-    }, 3000); // Ocultar el Toast después de 3 segundos (puedes ajustar esto según tus necesidades)
+    if (toastTrigger && toastLiveExample) {
+      const toastBootstrap = new window.bootstrap.Toast(toastLiveExample);
+      toastBootstrap.show();
+    }
+
+    // Guardar las cantidades en localStorage solo al agregar al carrito
+    const nuevaCantidades = [...cantidades];
+    guardarEnLocalStorage(index, nuevaCantidades[index]);
   };
 
   const guardarEnLocalStorage = (index, cantidad) => {
     // Obtener el carrito actual desde localStorage (si existe)
     const carritoActual = JSON.parse(localStorage.getItem('carrito')) || [];
-
+  
     // Verificar si el producto ya está en el carrito
-    const productoEnCarritoIndex = carritoActual.findIndex((item) => item.id === Productos[index].id);
-
+    const productoEnCarritoIndex = carritoActual.findIndex((item) => item.id === hamburguesasImperdiblesAleatorias[index].id);
+  
+    // Obtener el precio del producto (con descuento aplicado)
+    const precioUnitarioConDescuento =
+      hamburguesasImperdiblesAleatorias[index].descuento > 0
+        ? (hamburguesasImperdiblesAleatorias[index].precio * (100 - hamburguesasImperdiblesAleatorias[index].descuento)) / 100
+        : hamburguesasImperdiblesAleatorias[index].precio;
+  
+    // Calcular el precio total
+    const precioParcial = precioUnitarioConDescuento * cantidad;
+  
     // Actualizar la cantidad si el producto ya está en el carrito, de lo contrario, agregarlo
     if (productoEnCarritoIndex !== -1) {
       carritoActual[productoEnCarritoIndex].cantidad = cantidad;
+      carritoActual[productoEnCarritoIndex].precio = precioUnitarioConDescuento; // Actualizar el precio unitario
+      carritoActual[productoEnCarritoIndex].precioParcial = precioParcial; // Actualizar el precio total
     } else {
-      // Agregar más información sobre el producto al carrito
+      // Agregar más información sobre el producto al carrito, incluyendo el precio y el precio total
       carritoActual.push({
-        id: Productos[index].id,
-        producto: Productos[index], // Agregar el objeto completo del producto
+        id: hamburguesasImperdiblesAleatorias[index].id,
+        producto: hamburguesasImperdiblesAleatorias[index], // Agregar el objeto completo del producto
         cantidad,
+        precio: precioUnitarioConDescuento,
+        precioParcial,
       });
     }
-
+  
     // Guardar el carrito actualizado en localStorage
     localStorage.setItem('carrito', JSON.stringify(carritoActual));
   };
+    
 
   return (
     <>
       <div className="container">
         <div className="row g-4">
-          {Productos.map((producto, index) => (
+          {hamburguesasImperdiblesAleatorias.map((producto, index) => (
             <div key={producto.id} className="col">
               <img src={producto.img} className="card-img-top" alt={producto.titulo} />
               <div className="card-body">
@@ -107,28 +128,28 @@ export const CombosImperdibles = ({ Productos }) => {
                   Agregar al carrito
                 </button>
               </div>
+
+              {/* TOAST*/}
+              <div className="toast-container position-fixed bottom-0 p-3">
+                <div
+                  id={`liveToast${index}`}
+                  className={`toast`}
+                  role="alert"
+                  aria-live="assertive"
+                  aria-atomic="true"
+                >
+                  <div className="toast-header">
+                    <strong className="me-auto">Carrito de compras</strong>
+                    <small>Tienda Grupo 5</small>
+                    <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div>
+                  <div className="toast-body">{`Agregaste ${cantidades[index]} ${producto.titulo} al carrito!`}</div>
+                </div>
+              </div>
+              {/* FIN TOAST */}
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="toast-container position-fixed bottom-0 p-3">
-        {Productos.map((producto, index) => (
-          <div
-            key={producto.id}
-            className={`toast ${showToasts[index] ? 'show' : ''}`}
-            role="alert"
-            aria-live="assertive"
-            aria-atomic="true"
-          >
-            <div className="toast-header">
-              <strong className="me-auto">Carrito de compras</strong>
-              <small>Tienda Grupo 5</small>
-              <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div className="toast-body">{`Agregaste ${cantidades[index]} ${producto.titulo} al carrito!`}</div>
-          </div>
-        ))}
       </div>
     </>
   );

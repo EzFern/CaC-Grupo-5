@@ -1,7 +1,6 @@
-// borderTopLeftRadius: '15px', borderTopRightRadius: '15px' 
 import React, { useState, useRef, useEffect } from 'react';
 
-export const DetallesProducto = ({ id, categoria, titulo, img, descripcion, combo, ingredientes, precio, descuento, stock, destacado }) => {
+export const DetallesProducto = ({ id, categoria, titulo, img, descripcion, combo, ingredientes, precio, descuento, stock }) => {
   const [cantidad, setCantidad] = useState(1);
   const toastTriggerRef = useRef(null);
   const toastRef = useRef(null);
@@ -31,7 +30,6 @@ export const DetallesProducto = ({ id, categoria, titulo, img, descripcion, comb
         precio,
         descuento,
         stock,
-        destacado,
       },
       cantidad,
     });

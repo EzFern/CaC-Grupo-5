@@ -31,7 +31,7 @@ export const Carrito = () => {
       <ul>
         {productosCarrito.map((item, index) => (
           <li key={index}>
-            {item.producto.titulo} - Cantidad: {item.cantidad}
+            {item.producto.titulo} - Cantidad: {item.cantidad} - Precio unitario: ${item.precio.toFixed(2)} - Precio parcial: ${item.precioParcial.toFixed(2)}
             <button onClick={() => handleEliminarProducto(index)}>Eliminar</button>
           </li>
         ))}
