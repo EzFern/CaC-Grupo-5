@@ -95,12 +95,12 @@ export const DetallesProducto = () => {
   return (
     <>
       {producto && (
-        <div className="card mb-3 border-0">
+        <div className="card mb-3 border-0" style={{width: '35vw'}}>
           <img
             src={producto.img}
             className="card-img-top"
             alt={producto.titulo}
-            style={{ maxWidth: '50%', margin: 'auto', display: 'block', borderTopLeftRadius: '15px', borderTopRightRadius: '15px' }}
+            style={{ maxWidth: '100%', maxHeight: '55vh', margin: 'auto', display: 'block', borderTopLeftRadius: '15px', borderTopRightRadius: '15px' }}
           />
           <div className="card-body">
             <h5 className="card-title">{producto.titulo}</h5>
