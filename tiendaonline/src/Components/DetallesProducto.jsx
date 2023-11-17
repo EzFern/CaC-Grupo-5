@@ -31,6 +31,7 @@ export const DetallesProducto = ({ id, categoria, titulo, img, descripcion, comb
           <h5 className="card-title">{titulo}</h5>
           <p className="card-text">{combo != "" ? `+ ${combo}` : ""}</p>
           <p className="card-text">Descripción: {descripcion}</p>
+          <p className="card-text">Ingredientes: {ingredientes}</p>
           {descuento > 0 ? <span className="badge bg-light text-success fs-5">-{descuento}% OFF</span> : ""}
           <p className="card-text fs-1 fw-bold text-danger">{descuento > 0 ? `$${(precio - (precio * descuento / 100)) * cantidad}` : `$${precio * cantidad}`}</p>
           <div class="btn-group me-2" role="group" aria-label="btnGroup">
