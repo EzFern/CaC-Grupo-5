@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export const CombosImperdibles = ({ Productos }) => {
   const [cantidades, setCantidades] = useState(Array(Productos.length).fill(1));
@@ -8,12 +8,14 @@ export const CombosImperdibles = ({ Productos }) => {
     const nuevaCantidades = [...cantidades];
     nuevaCantidades[index] += 1;
     setCantidades(nuevaCantidades);
+    guardarEnLocalStorage(index, nuevaCantidades[index]);
   };
 
   const restarProducto = (index) => {
     const nuevaCantidades = [...cantidades];
     nuevaCantidades[index] = Math.max(1, nuevaCantidades[index] - 1);
     setCantidades(nuevaCantidades);
+    guardarEnLocalStorage(index, nuevaCantidades[index]);
   };
 
   const handleAgregarCarrito = (index) => {
@@ -32,8 +34,31 @@ export const CombosImperdibles = ({ Productos }) => {
     }, 3000); // Ocultar el Toast después de 3 segundos (puedes ajustar esto según tus necesidades)
   };
 
+  const guardarEnLocalStorage = (index, cantidad) => {
+    // Obtener el carrito actual desde localStorage (si existe)
+    const carritoActual = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    // Verificar si el producto ya está en el carrito
+    const productoEnCarritoIndex = carritoActual.findIndex((item) => item.id === Productos[index].id);
+
+    // Actualizar la cantidad si el producto ya está en el carrito, de lo contrario, agregarlo
+    if (productoEnCarritoIndex !== -1) {
+      carritoActual[productoEnCarritoIndex].cantidad = cantidad;
+    } else {
+      // Agregar más información sobre el producto al carrito
+      carritoActual.push({
+        id: Productos[index].id,
+        producto: Productos[index], // Agregar el objeto completo del producto
+        cantidad,
+      });
+    }
+
+    // Guardar el carrito actualizado en localStorage
+    localStorage.setItem('carrito', JSON.stringify(carritoActual));
+  };
+
   return (
-    <>      
+    <>
       <div className="container">
         <div className="row g-4">
           {Productos.map((producto, index) => (
@@ -84,10 +109,9 @@ export const CombosImperdibles = ({ Productos }) => {
               </div>
             </div>
           ))}
-        </div>        
+        </div>
       </div>
 
-      {/* TOASTs */}
       <div className="toast-container position-fixed bottom-0 p-3">
         {Productos.map((producto, index) => (
           <div
@@ -106,7 +130,6 @@ export const CombosImperdibles = ({ Productos }) => {
           </div>
         ))}
       </div>
-      {/* FIN TOASTs */}
     </>
   );
 };
