@@ -1,19 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'
-import { productos } from "../Utils/Database";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { productos } from '../Utils/Database';
 
 export const CombosImperdibles = () => {
   const hamburguesas = productos.hamburguesas;
-  // Filtrar productos imperdibles
   const hamburguesasImperdibles = hamburguesas.filter((item) => item.imperdible);
-
-  // Estado para las cantidades
   const [cantidades, setCantidades] = useState(Array(hamburguesasImperdibles.length).fill(1));
-
-  // Estado para las hamburguesas aleatorias
   const [hamburguesasImperdiblesAleatorias, setHamburguesasImperdiblesAleatorias] = useState(() =>
     hamburguesasImperdibles.sort(() => Math.random() - 0.5).slice(0, 4)
-  );
+  ); 
+
+  const showToast = () => {
+    const toastLiveExample = document.getElementById('liveToast');
+    if (toastLiveExample) {
+      const toastBootstrap = new window.bootstrap.Toast(toastLiveExample);
+      toastBootstrap.show();
+    }
+  };
+
+  const guardarEnLocalStorage = (index, cantidad) => {
+    const carritoActual = JSON.parse(localStorage.getItem('carrito')) || [];
+    const productoEnCarritoIndex = carritoActual.findIndex((item) => item.id === hamburguesasImperdiblesAleatorias[index].id);
+    const precioUnitarioConDescuento =
+      hamburguesasImperdiblesAleatorias[index].descuento > 0
+        ? (hamburguesasImperdiblesAleatorias[index].precio * (100 - hamburguesasImperdiblesAleatorias[index].descuento)) / 100
+        : hamburguesasImperdiblesAleatorias[index].precio;
+    const precioParcial = precioUnitarioConDescuento * cantidad;
+
+    if (productoEnCarritoIndex !== -1) {
+      carritoActual[productoEnCarritoIndex].cantidad = cantidad;
+      carritoActual[productoEnCarritoIndex].precio = precioUnitarioConDescuento;
+      carritoActual[productoEnCarritoIndex].precioParcial = precioParcial;
+    } else {
+      carritoActual.push({
+        id: hamburguesasImperdiblesAleatorias[index].id,
+        producto: hamburguesasImperdiblesAleatorias[index],
+        cantidad,
+        precio: precioUnitarioConDescuento,
+        precioParcial,
+      });
+    }
+
+    localStorage.setItem('carrito', JSON.stringify(carritoActual));
+  };
 
   const sumarProducto = (index) => {
     const nuevaCantidades = [...cantidades];
@@ -28,70 +57,21 @@ export const CombosImperdibles = () => {
   };
 
   const handleAgregarCarrito = (index) => {
-    // Implementa la lógica del toast aquí
-    const toastTrigger = document.getElementById(`liveToastBtn${index}`);
-    const toastLiveExample = document.getElementById(`liveToast${index}`);
-
-    if (toastTrigger && toastLiveExample) {
-      const toastBootstrap = new window.bootstrap.Toast(toastLiveExample);
-      toastBootstrap.show();
-    }
-
-    // Guardar las cantidades en localStorage solo al agregar al carrito
-    const nuevaCantidades = [...cantidades];
-    guardarEnLocalStorage(index, nuevaCantidades[index]);
+    showToast();
+    guardarEnLocalStorage(index, cantidades[index]);
   };
-
-  const guardarEnLocalStorage = (index, cantidad) => {
-    // Obtener el carrito actual desde localStorage (si existe)
-    const carritoActual = JSON.parse(localStorage.getItem('carrito')) || [];
-  
-    // Verificar si el producto ya está en el carrito
-    const productoEnCarritoIndex = carritoActual.findIndex((item) => item.id === hamburguesasImperdiblesAleatorias[index].id);
-  
-    // Obtener el precio del producto (con descuento aplicado)
-    const precioUnitarioConDescuento =
-      hamburguesasImperdiblesAleatorias[index].descuento > 0
-        ? (hamburguesasImperdiblesAleatorias[index].precio * (100 - hamburguesasImperdiblesAleatorias[index].descuento)) / 100
-        : hamburguesasImperdiblesAleatorias[index].precio;
-  
-    // Calcular el precio total
-    const precioParcial = precioUnitarioConDescuento * cantidad;
-  
-    // Actualizar la cantidad si el producto ya está en el carrito, de lo contrario, agregarlo
-    if (productoEnCarritoIndex !== -1) {
-      carritoActual[productoEnCarritoIndex].cantidad = cantidad;
-      carritoActual[productoEnCarritoIndex].precio = precioUnitarioConDescuento; // Actualizar el precio unitario
-      carritoActual[productoEnCarritoIndex].precioParcial = precioParcial; // Actualizar el precio total
-    } else {
-      // Agregar más información sobre el producto al carrito, incluyendo el precio y el precio total
-      carritoActual.push({
-        id: hamburguesasImperdiblesAleatorias[index].id,
-        producto: hamburguesasImperdiblesAleatorias[index], // Agregar el objeto completo del producto
-        cantidad,
-        precio: precioUnitarioConDescuento,
-        precioParcial,
-      });
-    }
-  
-    // Guardar el carrito actualizado en localStorage
-    localStorage.setItem('carrito', JSON.stringify(carritoActual));
-  };
-    
 
   return (
     <>
       <h2 className="text-center mt-2 mb-4">COMBOS <strong className="text-danger">IMPERDIBLES</strong></h2>
-      <div className="container">   
+      <div className="container">
         <div className="row g-4">
           {hamburguesasImperdiblesAleatorias.map((producto, index) => (
             <div key={producto.id} className="col">
-              {/* Enlace al componente DetallesProducto */}
               <Link to={`/detalles/${producto.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-              <img src={producto.img} className="card-img-top" alt={producto.titulo} style={{ objectFit: 'cover', height: '200px', borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }}/>              
-              <h5 className="card-title text-center">{producto.titulo}</h5>
+                <img src={producto.img} className="card-img-top" alt={producto.titulo} style={{ objectFit: 'cover', height: '200px', borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }} />
+                <h5 className="card-title text-center">{producto.titulo}</h5>
               </Link>
-              {/* Fin del enlace */}
               <div className="card-body mb-5">
                 <p className="card-text text-center">{producto.combo !== "" ? `+ ${producto.combo}` : ""}</p>
                 {producto.descuento > 0 ? (
@@ -136,29 +116,27 @@ export const CombosImperdibles = () => {
                   </button>
                 </div>
               </div>
-
-              {/* TOAST*/}
-              <div className="toast-container position-fixed bottom-0 p-3">
-                <div
-                  id={`liveToast${index}`}
-                  className={`toast`}
-                  role="alert"
-                  aria-live="assertive"
-                  aria-atomic="true"
-                >
-                  <div className="toast-header">
-                    <strong className="me-auto">Carrito de compras</strong>
-                    <small>Tienda Grupo 5</small>
-                    <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                  </div>
-                  <div className="toast-body">{`Agregaste ${cantidades[index]} ${producto.titulo} al carrito!`}</div>
-                </div>
-              </div>
-              {/* FIN TOAST */}
             </div>
           ))}
         </div>
       </div>
+
+    {/* TOAST */}    
+    <div className="toast-container position-fixed top-0 end-0">
+        <div id="liveToast" className="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div className="toast-header">
+            <strong className="me-auto">Carrito</strong>
+            <small>Tienda Grupo 5</small>
+            <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div className="toast-body text-center">            
+            El pedido fue agregado a tu carrito!
+            <br />
+            <a href="/carrito"><button className="btn btn-primary btn-sm mt-1">Ir al carrito</button></a>
+          </div>
+        </div>
+      </div>
+    {/* FIN TOAST */}
     </>
   );
 };
