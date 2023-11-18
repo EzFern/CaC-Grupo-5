@@ -63,7 +63,7 @@ export const DetallesProducto = () => {
       localStorage.setItem('carrito', JSON.stringify(carritoActual));
 
       // Mostrar el Toast
-      const toastElement = document.getElementById(`liveToast-${id}`);
+      const toastElement = document.getElementById(`liveToast`);
       if (toastElement) {
         const toastBootstrap = new window.bootstrap.Toast(toastElement);
         toastBootstrap.show();
@@ -88,7 +88,7 @@ export const DetallesProducto = () => {
   }
 
   return (
-    <>
+    <div className='container d-flex justify-content-center'>
       {producto && (
         <div className="card mb-3 border-0" style={{width: '35vw'}}>
           <img
@@ -98,63 +98,66 @@ export const DetallesProducto = () => {
             style={{ maxWidth: '100%', maxHeight: '55vh', margin: 'auto', display: 'block', borderTopLeftRadius: '15px', borderTopRightRadius: '15px' }}
           />
           <div className="card-body">
-            <h5 className="card-title">{producto.titulo}</h5>
-            <p className="card-text">{producto.combo !== '' ? `+ ${producto.combo}` : ''}</p>
-            <p className="card-text"><strong>Descripción: </strong>{producto.descripcion}</p>
-            <p className="card-text"><strong>Ingredientes: </strong>{producto.ingredientes}</p>
-            {producto.descuento > 0 ? <span className="badge bg-light text-success fs-5">-{producto.descuento}% OFF</span> : ''}
-            <p className="card-text fs-1 fw-bold text-danger">
+            <h5 className="card-title text-center">{producto.titulo}</h5>
+            <p className="card-text text-center">{producto.combo !== '' ? `+ ${producto.combo}` : ''}</p>
+            <p className="card-text text-center"><strong>Descripción: </strong>{producto.descripcion}</p>
+            <p className="card-text text-center"><strong>Ingredientes: </strong>{producto.ingredientes}</p>
+            {producto.descuento > 0 ? <p className="text-center text-success fs-5">-{producto.descuento}% OFF</p> : ''}
+            <p className="card-text text-center fs-1 fw-bold text-danger">
               {producto.descuento > 0
                 ? `$${(producto.precio - (producto.precio * producto.descuento) / 100) * cantidad}`
                 : `$${producto.precio * cantidad}`}
             </p>
-            <div className="btn-group me-2" role="group" aria-label="btnGroup">
+            <div className="card-body d-flex justify-content-center">
+              <div className="btn-group me-2" role="group" aria-label="btnGroup">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={restarProducto}
+                  disabled={cantidad === 1 ? true : false}
+                >
+                  -
+                </button>
+                <button type="button" className="btn btn-light" disabled>
+                  {cantidad}
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={sumarProducto}
+                  disabled={cantidad >= producto.stock ? true : false}
+                >
+                  +
+                </button>
+              </div>
               <button
                 type="button"
-                className="btn btn-secondary"
-                onClick={restarProducto}
-                disabled={cantidad === 1 ? true : false}
+                className="btn btn-danger"              
+                onClick={handleAgregarCarrito}
               >
-                -
-              </button>
-              <button type="button" className="btn btn-light" disabled>
-                {cantidad}
-              </button>
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={sumarProducto}
-                disabled={cantidad >= producto.stock ? true : false}
-              >
-                +
+                Agregar al carrito
               </button>
             </div>
-            <button
-              type="button"
-              className="btn btn-danger"
-              id={`liveToastBtn-${id}`}
-              onClick={handleAgregarCarrito}
-            >
-              Agregar al carrito
-            </button>
           </div>
 
           {/* TOAST*/}
-          <div className="toast-container position-fixed bottom-0 p-3">
-            <div id={`liveToast-${id}`} className="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div className="toast-container position-fixed top-0 end-0">
+            <div id={`liveToast`} className="toast" role="alert" aria-live="assertive" aria-atomic="true">
               <div className="toast-header">
                 <strong className="me-auto">Carrito de compras</strong>
                 <small>Tienda Grupo 5</small>
                 <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
               </div>
-              <div className="toast-body">
-                Agregaste {cantidad} {producto.titulo} a tu carrito de compras!
+              <div className="toast-body text-center">
+                El pedido fue agregado a tu carrito!
+                <br />
+                <a href="/carrito"><button className="btn btn-primary btn-sm mt-1">Ir al carrito</button></a>
               </div>
             </div>
           </div>
           {/* FIN TOAST */}
         </div>
       )}
-    </>
+    </div>
   );
 };
