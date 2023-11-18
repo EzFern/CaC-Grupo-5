@@ -62,8 +62,8 @@ export const Carrousel = () => {
           {/* iteracion sobre productosRnd[] para crear diapositivas (solo 3?) */}
           {productosRnd.map((e, i) => (
             <div key={i} className={i == 0 ? "carousel-item active" : "carousel-item"}>
-              <img src={e.img} alt={e.titulo} className="d-block" />
-              <div className="carousel-caption d-none d-md-block">
+              <img src={e.img} alt={e.titulo} className="d-block " />
+              <div className="carousel-caption  d-md-block">
                 <p>{e.descripcion}</p>
                 <h1>{e.titulo}</h1>
               </div>
