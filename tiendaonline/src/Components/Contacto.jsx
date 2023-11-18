@@ -1,7 +1,10 @@
 import React from 'react'
+import Form from `../Form/Form`
 
 export const Contacto = () => {
   return (
-    <div>Contacto</div>
+    //nav
+    <Form/>
+    //footer
   )
 }
