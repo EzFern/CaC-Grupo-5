@@ -4,15 +4,21 @@
 
 .carousel-item {
   height: 400px;
+  overflow: hidden;
+  background-color: rgba(10, 10, 10, 0.9);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-.carousel-item img {
+/* .carousel-item img { */
   /* object-fit: cover; */
   /* object-position: center; */
-  height: 100vh;
-  overflow: hidden;  
+  /* height: 100vh; */
+  /* height: 150%; */
+  /* overflow: hidden;   */
   /* width: 160%; */
-}
+/* } */
 
 .carousel-caption {
   /* background-color: rgba(1, 100, 1, 1); */
