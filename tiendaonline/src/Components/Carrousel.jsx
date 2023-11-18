@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { productos } from "../Utils/Database";
 import "./Carrousel.css";
 
@@ -16,14 +16,24 @@ export const Carrousel = () => {
   };
 
   // todo: revisar esto para que no hayan repeticiones
-  let productosRnd = [prodRnd(), prodRnd(), prodRnd()];
-  // console.log('ProductosRnd:', productosRnd)
+  // let productosRnd = [prodRnd(), prodRnd(), prodRnd()];
+  const [productosRnd, setproductosRnd] = useState([])
+  console.log('ProductosRnd:', productosRnd)
+
+  // const cargarProductosRnd = () => {
+  //   setproductosRnd([prodRnd(), prodRnd(), prodRnd()]);
+  // };
+
+  // todo: revisar esto
+  useEffect( () => {
+    setproductosRnd([prodRnd(), prodRnd(), prodRnd()]);
+  }, [])
 
   return (
     <>
       {/* Carousel */}
       <div
-        id="demo"
+        id={"demo"+rnd(100)}
         className="carousel slide carousel-fade"
         data-bs-ride="carousel"
       >
@@ -51,7 +61,7 @@ export const Carrousel = () => {
         <div className="carousel-inner">
           {/* iteracion sobre productosRnd[] para crear diapositivas (solo 3?) */}
           {productosRnd.map((e, i) => (
-            <div className={i == 0 ? "carousel-item active" : "carousel-item"}>
+            <div key={i} className={i == 0 ? "carousel-item active" : "carousel-item"}>
               <img src={e.img} alt={e.titulo} className="d-block" />
               <div className="carousel-caption d-none d-md-block">
                 <p>{e.descripcion}</p>
