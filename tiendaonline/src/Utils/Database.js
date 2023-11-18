@@ -77,7 +77,7 @@ export const productos = {
         {
             id: 'H7',
             titulo: 'Hamburguesa Deluxe',
-            img: new URL('https://www.buenosbares.com/wp-content/uploads/2022/05/MEGA-DELUXE-BACON-DOBLE-550x486.png'),
+            img: new URL('https://www.publicdomainpictures.net/pictures/240000/nahled/cheeseburger-deluxe.jpg'),
             descripcion: 'Una hamburguesa gourmet con ingredientes premium.',
             combo: 'Ensalada de rúcula',
             ingredientes: 'Carne Wagyu, queso brie, cebolla caramelizada',
