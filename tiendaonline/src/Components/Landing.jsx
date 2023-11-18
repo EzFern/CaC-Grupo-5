@@ -3,6 +3,7 @@ import { EncabezadoDePagina } from "./EncabezadoDePagina"
 import { Menu } from "./Menu"
 import { Carrousel } from "./Carrousel"
 import { Categorias } from "./Categorias"
+import { CardsCategorias } from "./CardsCategorias"
 import { CombosImperdibles } from './CombosImperdibles'
 import { CombosImperdibles2 } from './CombosImperdibles2'
 import { RecibirOfertas } from './RecibirOfertas'
@@ -19,10 +20,10 @@ export const Landing = () => {
       <EncabezadoDePagina/>
       <Menu/>
       <Carrousel />
-      <Categorias/>
+      <CardsCategorias/>
       <CombosImperdibles/>
       <Carrousel/>
-      <Categorias/>
+      <CardsCategorias/>
       <CombosImperdibles2/>
       <RecibirOfertas />
       <SeguinosEn />
