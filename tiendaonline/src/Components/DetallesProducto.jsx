@@ -105,8 +105,8 @@ export const DetallesProducto = () => {
           <div className="card-body">
             <h5 className="card-title">{producto.titulo}</h5>
             <p className="card-text">{producto.combo !== '' ? `+ ${producto.combo}` : ''}</p>
-            <p className="card-text">Descripción: {producto.descripcion}</p>
-            <p className="card-text">Ingredientes: {producto.ingredientes}</p>
+            <p className="card-text"><strong>Descripción: </strong>{producto.descripcion}</p>
+            <p className="card-text"><strong>Ingredientes: </strong>{producto.ingredientes}</p>
             {producto.descuento > 0 ? <span className="badge bg-light text-success fs-5">-{producto.descuento}% OFF</span> : ''}
             <p className="card-text fs-1 fw-bold text-danger">
               {producto.descuento > 0
