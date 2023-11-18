@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 import { productos } from "../Utils/Database";
 
 export const CombosImperdibles = () => {
@@ -84,9 +85,13 @@ export const CombosImperdibles = () => {
         <div className="row g-4">
           {hamburguesasImperdiblesAleatorias.map((producto, index) => (
             <div key={producto.id} className="col">
-              <img src={producto.img} className="card-img-top" alt={producto.titulo} />
+              {/* Enlace al componente DetallesProducto */}
+              <Link to={`/detalles/${producto.id}`}>
+              <img src={producto.img} className="card-img-top" alt={producto.titulo} />              
+              <h5 className="card-title">{producto.titulo}</h5>
+              </Link>
+              {/* Fin del enlace */}
               <div className="card-body">
-                <h5 className="card-title">{producto.titulo}</h5>
                 <p className="card-text">{producto.combo !== "" ? `+ ${producto.combo}` : ""}</p>
                 {producto.descuento > 0 ? (
                   <span className="badge bg-light text-success">-{producto.descuento}% OFF</span>
