@@ -1,12 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { productos } from '../Utils/Database';
 
 export const DetallesProducto = () => {
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
-  const [cantidad, setCantidad] = useState(1);
-  const toastTriggerRef = useRef(null);
+  const [cantidad, setCantidad] = useState(1);  
 
   const sumarProducto = () => {
     setCantidad(cantidad + 1);
@@ -81,11 +80,7 @@ export const DetallesProducto = () => {
 
     // Actualizar el estado del producto
     setProducto(encontrado);
-  }, [id]);
-
-  useEffect(() => {
-    toastTriggerRef.current = document.getElementById(`liveToastBtn-${id}`);
-  }, [id]);
+  }, [id]);  
 
   // Si el producto aún no se ha encontrado, podrías mostrar un mensaje o redirigir a otra página
   if (!producto) {
