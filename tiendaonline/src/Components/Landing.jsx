@@ -3,8 +3,8 @@ import { EncabezadoDePagina } from "./EncabezadoDePagina"
 import { Menu } from "./Menu"
 import { Carrousel } from "./Carrousel"
 import { Categorias } from "./Categorias"
-import { DetallesProducto } from './DetallesProducto'
 import { CombosImperdibles } from './CombosImperdibles'
+import { CombosImperdibles2 } from './CombosImperdibles2'
 import { RecibirOfertas } from './RecibirOfertas'
 import { SeguinosEn } from './SeguinosEn'
 import { PieDePagina } from './PieDePagina'
@@ -23,7 +23,7 @@ export const Landing = () => {
       <CombosImperdibles/>
       <Carrousel/>
       <Categorias/>
-      <CombosImperdibles/>
+      <CombosImperdibles2/>
       <RecibirOfertas />
       <SeguinosEn />
       <PieDePagina />
