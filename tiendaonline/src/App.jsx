@@ -4,7 +4,7 @@ import { Landing } from './Components/Landing.jsx';
 import { DetallesProducto } from './Components/DetallesProducto.jsx';
 import { Carrito } from './Components/Carrito.jsx';
 import { ResetCarrito } from './Components/ResetCarrito.jsx';
-import { Contacto } from `./Components/Contacto.jsx`
+import { Contacto } from './Components/Contacto.jsx'
 
 function App() {
   return (
