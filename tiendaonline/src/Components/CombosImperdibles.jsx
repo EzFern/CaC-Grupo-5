@@ -81,7 +81,8 @@ export const CombosImperdibles = () => {
 
   return (
     <>
-      <div className="container">
+      <h2 className="text-center mt-2 mb-4">COMBOS <strong className="text-danger">IMPERDIBLES</strong></h2>
+      <div className="container">        
         <div className="row g-4">
           {hamburguesasImperdiblesAleatorias.map((producto, index) => (
             <div key={producto.id} className="col">
