@@ -82,57 +82,59 @@ export const CombosImperdibles = () => {
   return (
     <>
       <h2 className="text-center mt-2 mb-4">COMBOS <strong className="text-danger">IMPERDIBLES</strong></h2>
-      <div className="container">        
+      <div className="container">   
         <div className="row g-4">
           {hamburguesasImperdiblesAleatorias.map((producto, index) => (
             <div key={producto.id} className="col">
               {/* Enlace al componente DetallesProducto */}
-              <Link to={`/detalles/${producto.id}`}>
-              <img src={producto.img} className="card-img-top" alt={producto.titulo} />              
-              <h5 className="card-title">{producto.titulo}</h5>
+              <Link to={`/detalles/${producto.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+              <img src={producto.img} className="card-img-top" alt={producto.titulo} style={{ objectFit: 'cover', height: '200px', borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }}/>              
+              <h5 className="card-title text-center">{producto.titulo}</h5>
               </Link>
               {/* Fin del enlace */}
-              <div className="card-body">
-                <p className="card-text">{producto.combo !== "" ? `+ ${producto.combo}` : ""}</p>
+              <div className="card-body mb-5">
+                <p className="card-text text-center">{producto.combo !== "" ? `+ ${producto.combo}` : ""}</p>
                 {producto.descuento > 0 ? (
-                  <span className="badge bg-light text-success">-{producto.descuento}% OFF</span>
+                  <p className="text-success fw-bold text-center">-{producto.descuento}% OFF</p>
                 ) : (
                   ""
                 )}
-                <p className="card-text fw-bold text-warning fs-3">
+                <p className="card-text text-center fw-bold text-warning fs-2">
                   {producto.descuento > 0
                     ? `$${(producto.precio - (producto.precio * producto.descuento) / 100) * cantidades[index]}`
                     : `$${producto.precio * cantidades[index]}`}
                 </p>
-                <div className="btn-group me-2" role="group" aria-label="btnGroup">
+                <div className="card-body d-flex justify-content-center">
+                  <div className="btn-group me-2" role="group" aria-label="btnGroup">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={() => restarProducto(index)}
+                      disabled={cantidades[index] === 1 ? true : false}
+                    >
+                      -
+                    </button>
+                    <button type="button" className="btn btn-light" disabled>
+                      {cantidades[index]}
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={() => sumarProducto(index)}
+                      disabled={cantidades[index] >= producto.stock ? true : false}
+                    >
+                      +
+                    </button>
+                  </div>
                   <button
                     type="button"
-                    className="btn btn-secondary"
-                    onClick={() => restarProducto(index)}
-                    disabled={cantidades[index] === 1 ? true : false}
+                    className="btn btn-danger"
+                    id={`liveToastBtn${index}`}
+                    onClick={() => handleAgregarCarrito(index)}
                   >
-                    -
-                  </button>
-                  <button type="button" className="btn btn-light" disabled>
-                    {cantidades[index]}
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    onClick={() => sumarProducto(index)}
-                    disabled={cantidades[index] >= producto.stock ? true : false}
-                  >
-                    +
+                    Agregar al carrito
                   </button>
                 </div>
-                <button
-                  type="button"
-                  className="btn btn-danger"
-                  id={`liveToastBtn${index}`}
-                  onClick={() => handleAgregarCarrito(index)}
-                >
-                  Agregar al carrito
-                </button>
               </div>
 
               {/* TOAST*/}
