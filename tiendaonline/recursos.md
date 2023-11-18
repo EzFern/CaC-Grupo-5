@@ -1,4 +1,9 @@
-# Colores usados en proyecto
+# Recursos usados en el proyecto
+
+### Fuente  
+Montserrat
+
+### Colores  
 
 Rojo: #B90000
 Naranja: #EF8100
