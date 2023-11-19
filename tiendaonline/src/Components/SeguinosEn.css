@@ -1,0 +1,27 @@
+.seguinos_en * {
+  background-color: rgba(0, 0, 0, 0);
+  color: #b70000;
+}
+
+.seguinos_en {
+  height: 200px;
+  background-color: #f1f1f1;
+}
+
+/* .seguinos_en div div { */
+  /* background-color: aquamarine; */
+  /* border-style: solid; */
+/* } */
+
+.seguinos_en img {
+  height: 50px;
+  /* background-color: #F1F1F1; */
+}
+
+/* .seguinos_en div {
+  background-color: aquamarine;
+} */
+
+/* .seguinos_en div h2 {
+  background-color: gray;
+} */
