@@ -1,0 +1,29 @@
+.recibir_ofertas * {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+.recibir_ofertas {
+  height: 200px;
+  background-color: #ed8000;
+}
+
+/* .recibir_ofertas div {
+  background-color: aquamarine;
+  height: 200px;
+} */
+
+/* .recibir_ofertas div {
+  background-color: blueviolet;
+} */
+
+/* .recibir_ofertas div h1 {
+  background-color: gray;
+} */
+
+.recibir_ofertas input {
+  height: 50px;
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+}
