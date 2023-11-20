@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./CardsCategorias.css";
 import { productos } from "../Utils/Database";
 
@@ -16,22 +17,24 @@ export const CardsCategorias = () => {
   }, []);
 
   const CardCategoria = ({ cat, derecha }) => {
+    let der = derecha ? " justify-content-end text-end " : "";
+
     return (
-      <div className="col-12 col-sm-6 col-md-6 my-2 ">
+      <div className="col-12 col-sm-6 col-md-6 my-4 ">
         <div
           className={
-            "card_categoria px-5 d-flex flex-grow-1 align-items-center text-capitalize " +
-            (derecha
-              ? " text-end justify-content-end"
-              : " justify-content-start")
+            "card_categoria mx-1 px-5 d-flex flex-grow-1 align-items-center text-capitalize " +
+            der
           }
           style={{
             backgroundImage: `url(${cat.img_url})`,
           }}
         >
           <div>
-            <h1>{`${cat.titulo}`}</h1>
-            <button>ver categoria</button>
+            <h1 className={der}>{`${cat.titulo}`}</h1>
+            <Link to={"/"}>
+              <button>ver categoria</button>
+            </Link>
           </div>
         </div>
       </div>
