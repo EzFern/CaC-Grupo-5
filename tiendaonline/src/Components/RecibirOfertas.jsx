@@ -3,19 +3,21 @@ import "./RecibirOfertas.css";
 
 export const RecibirOfertas = () => {
   const [msgToast, setMsgToast] = useState("");
+  const [email, setEmail] = useState("");
 
-  const handleConfirmarEmail = (index) => {
-    verificarEmail();
-    showToast();
+  const verificarEmail = (mail) => {
+    let testEmail = /^[ ]*([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{1,})[ ]*$/i;
+    setMsgToast(
+      testEmail.test(mail)
+        ? "Suscripto exitosamente!"
+        : "Formato de mail no válido"
+    );
   };
 
-  const verificarEmail = () => {
-    // todo: verificar formato de mail correcto
-    if (true) {
-      setMsgToast("suscripto exitosamente!");
-    } else {
-      setMsgToast("error suscribiendo");
-    }
+  const update = async (e) => {
+    e.preventDefault();
+    verificarEmail(email);
+    showToast();
   };
 
   const showToast = (mensaje) => {
@@ -32,21 +34,19 @@ export const RecibirOfertas = () => {
         <div className="col-11 d-flex justify-content-center">
           <div className="col col-sm-10 col-md-10 col-lg-8 col-xl-7">
             <h1 className="my-0 text-center">¡Recibí nuestras ofertas!</h1>
-            <div className="d-flex justify-content-center">
+            <form className="d-flex justify-content-center" onSubmit={update}>
               <input
                 className="my-0 mt-2 me-1 px-4"
                 type="email"
                 name=""
                 id=""
                 placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <button
-                className="btn btn-secondary mt-2 px-3 py-2"
-                onClick={() => handleConfirmarEmail()}
-              >
+              <button className="btn btn-secondary mt-2 px-3 py-2">
                 <img src="/src/assets/iconos/Flecha.png" width="25" />
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
