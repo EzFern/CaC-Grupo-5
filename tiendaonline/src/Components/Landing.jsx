@@ -21,10 +21,10 @@ export const Landing = () => {
       <Menu/>
       <Carrousel />
       <CardsCategorias/>
-      <CombosImperdibles/>
+      <CombosImperdibles categoriaSolicitada="hamburguesas" />
       <Carrousel/>
       <CardsCategorias/>
-      <CombosImperdibles2/>
+      <CombosImperdibles categoriaSolicitada="pizzas" />
       <RecibirOfertas />
       <SeguinosEn />
       <PieDePagina />
