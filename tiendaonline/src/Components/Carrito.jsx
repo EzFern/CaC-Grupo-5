@@ -66,12 +66,12 @@ export const Carrito = () => {
   };
 
   return (
-    <div className="container mt-4 w-50vw">
+    <div className="container mt-4 w-50vw d-flex flex-column align-items-center">
       <h2 className="mb-4 text-start">Mi carrito</h2>
       <div className="table-responsive">
         <table
           className="table table-bordered mt-3"
-          style={{ width: "80vh", height: "25vh" }}
+          style={{ width: "50vw", height: "25vh" }}
         >
           <thead>
             <tr>
@@ -114,19 +114,17 @@ export const Carrito = () => {
           </tbody>
         </table>
       </div>
-      <div className="row">
-        <div className="col">
+      <div className="container">
           <div className="fw-bold text-end">
             <p className=" fs-4 fs-md-3">
               Total: <span>${total}</span>
-            </p>
-          </div>
+            </p>  
         </div>
-      </div>
-      <div className="text-end mt-0">
+        <div className="text-end mt-0">
         <button onClick={CompraCompleta} className="btn btn-danger">
           Finalizar compra
         </button>
+      </div>
       </div>
       {showToast && (
         <div
