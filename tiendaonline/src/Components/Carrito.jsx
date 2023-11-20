@@ -71,7 +71,7 @@ export const Carrito = () => {
       <div className="table-responsive">
         <table
           className="table table-bordered mt-3"
-          style={{ width: "80vh", height: "25vh" }}
+          style={{ width: "50vw", height: "25vh" }}
         >
           <thead>
             <tr>
