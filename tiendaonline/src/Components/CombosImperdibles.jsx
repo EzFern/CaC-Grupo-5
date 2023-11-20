@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { productos } from '../Utils/Database';
 
-export const CombosImperdibles = () => {
-  const hamburguesas = productos.hamburguesas;
-  const hamburguesasImperdibles = hamburguesas.filter((item) => item.imperdible);
-  const [cantidades, setCantidades] = useState(Array(hamburguesasImperdibles.length).fill(1));
-  const [hamburguesasImperdiblesAleatorias, setHamburguesasImperdiblesAleatorias] = useState(() =>
-    hamburguesasImperdibles.sort(() => Math.random() - 0.5).slice(0, 4)
+export const CombosImperdibles = ({categoriaSolicitada}) => {
+  const categoria = productos[categoriaSolicitada];
+
+  const productosImperdibles = categoria.filter((item) => item.imperdible);
+  const [cantidades, setCantidades] = useState(Array(productosImperdibles.length).fill(1));
+  const [productosImperdiblesAleatorios, setproductosImperdiblesAleatorios] = useState(() =>
+    productosImperdibles.sort(() => Math.random() - 0.5).slice(0, 4)
   ); 
 
   const showToast = () => {
@@ -20,11 +21,11 @@ export const CombosImperdibles = () => {
 
   const guardarEnLocalStorage = (index, cantidad) => {
     const carritoActual = JSON.parse(localStorage.getItem('carrito')) || [];
-    const productoEnCarritoIndex = carritoActual.findIndex((item) => item.id === hamburguesasImperdiblesAleatorias[index].id);
+    const productoEnCarritoIndex = carritoActual.findIndex((item) => item.id === productosImperdiblesAleatorios[index].id);
     const precioUnitarioConDescuento =
-      hamburguesasImperdiblesAleatorias[index].descuento > 0
-        ? (hamburguesasImperdiblesAleatorias[index].precio * (100 - hamburguesasImperdiblesAleatorias[index].descuento)) / 100
-        : hamburguesasImperdiblesAleatorias[index].precio;
+    productosImperdiblesAleatorios[index].descuento > 0
+        ? (productosImperdiblesAleatorios[index].precio * (100 - productosImperdiblesAleatorios[index].descuento)) / 100
+        : productosImperdiblesAleatorios[index].precio;
     const precioParcial = precioUnitarioConDescuento * cantidad;
 
     if (productoEnCarritoIndex !== -1) {
@@ -33,8 +34,8 @@ export const CombosImperdibles = () => {
       carritoActual[productoEnCarritoIndex].precioParcial = precioParcial;
     } else {
       carritoActual.push({
-        id: hamburguesasImperdiblesAleatorias[index].id,
-        producto: hamburguesasImperdiblesAleatorias[index],
+        id: productosImperdiblesAleatorios[index].id,
+        producto: productosImperdiblesAleatorios[index],
         cantidad,
         precio: precioUnitarioConDescuento,
         precioParcial,
@@ -66,7 +67,7 @@ export const CombosImperdibles = () => {
       <h2 className="text-center mt-2 mb-4">COMBOS <strong className="text-danger">IMPERDIBLES</strong></h2>
       <div className="container">
         <div className="row g-4">
-          {hamburguesasImperdiblesAleatorias.map((producto, index) => (
+          {productosImperdiblesAleatorios.map((producto, index) => (
             <div key={producto.id} className="col">
               <Link to={`/detalles/${producto.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <img src={producto.img} className="card-img-top" alt={producto.titulo} style={{ objectFit: 'cover', height: '200px', borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }} />
