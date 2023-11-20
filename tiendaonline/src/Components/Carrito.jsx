@@ -67,7 +67,9 @@ export const Carrito = () => {
 
   return (
     <div className="container mt-4 w-50vw d-flex flex-column align-items-center">
-      <h2 className="mb-4 text-start">Mi carrito</h2>
+      <div className="mb-4 text-start">
+      <h2>Mi carrito</h2>
+      </div>
       <div className="table-responsive">
         <table
           className="table table-bordered mt-3"
@@ -114,7 +116,7 @@ export const Carrito = () => {
           </tbody>
         </table>
       </div>
-      <div className="container">
+      <div className="container w-50 d-flex justify-content-end gap-3">
           <div className="fw-bold text-end">
             <p className=" fs-4 fs-md-3">
               Total: <span>${total}</span>
