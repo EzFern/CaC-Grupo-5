@@ -8,18 +8,23 @@
   background-color: #f1f1f1;
 }
 
-/* .seguinos_en div div { */
-  /* background-color: aquamarine; */
-  /* border-style: solid; */
-/* } */
+/* .seguinos_en div  {
+  background-color: blue;
+  border-inline: 1px solid;
+} */
+
+/* .seguinos_en div div {
+  background-color: aquamarine;
+  border-inline: 1px solid;
+} */
 
 .seguinos_en img {
   height: 50px;
-  /* background-color: #F1F1F1; */
+  /* background-color: chartreuse; */
 }
 
 /* .seguinos_en div {
-  background-color: aquamarine;
+  background-color: cadetblue;
 } */
 
 /* .seguinos_en div h2 {
