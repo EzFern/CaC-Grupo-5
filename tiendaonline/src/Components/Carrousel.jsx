@@ -18,11 +18,7 @@ export const Carrousel = () => {
   // todo: revisar esto para que no hayan repeticiones
   // let productosRnd = [prodRnd(), prodRnd(), prodRnd()];
   const [productosRnd, setproductosRnd] = useState([]);
-  console.log("ProductosRnd:", productosRnd);
-
-  // const cargarProductosRnd = () => {
-  //   setproductosRnd([prodRnd(), prodRnd(), prodRnd()]);
-  // };
+  // console.log("ProductosRnd:", productosRnd);
 
   // todo: revisar esto
   useEffect(() => {
