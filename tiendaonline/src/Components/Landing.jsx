@@ -5,7 +5,6 @@ import { Carrousel } from "./Carrousel"
 import { Categorias } from "./Categorias"
 import { CardsCategorias } from "./CardsCategorias"
 import { CombosImperdibles } from './CombosImperdibles'
-import { CombosImperdibles2 } from './CombosImperdibles2'
 import { RecibirOfertas } from './RecibirOfertas'
 import { SeguinosEn } from './SeguinosEn'
 import { PieDePagina } from './PieDePagina'
