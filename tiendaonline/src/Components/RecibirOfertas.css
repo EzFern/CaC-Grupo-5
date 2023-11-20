@@ -10,14 +10,13 @@
 
 /* .recibir_ofertas div {
   background-color: aquamarine;
-  height: 200px;
-} */
-
-/* .recibir_ofertas div {
-  background-color: blueviolet;
 } */
 
 /* .recibir_ofertas div h1 {
+  background-color: gray;
+} */
+
+/* .recibir_ofertas div div {
   background-color: gray;
 } */
 
@@ -26,6 +25,7 @@
   color: black;
   background-color: white;
   border-radius: 10px;
+  border-style: none;
 }
 
 .recibir_ofertas button {
@@ -33,4 +33,5 @@
   color: black;
   background-color: white;
   border-radius: 10px;
+  border-style: none;
 }
