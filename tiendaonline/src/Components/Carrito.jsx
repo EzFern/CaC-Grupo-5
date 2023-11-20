@@ -66,7 +66,7 @@ export const Carrito = () => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 w-50vw">
       <h2 className="mb-4 text-start">Mi carrito</h2>
       <div className="table-responsive">
         <table
