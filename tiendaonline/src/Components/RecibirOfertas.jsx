@@ -5,18 +5,16 @@ export const RecibirOfertas = () => {
   const [msgToast, setMsgToast] = useState("");
   const [email, setEmail] = useState("");
 
-  const verificarEmail = (mail) => {
+  const suscribir = async (e) => {
     let testEmail = /^[ ]*([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{1,})[ ]*$/i;
-    setMsgToast(
-      testEmail.test(mail)
-        ? "Suscripto exitosamente!"
-        : "Formato de mail no válido"
-    );
-  };
-
-  const update = async (e) => {
     e.preventDefault();
-    verificarEmail(email);
+    if (testEmail.test(email)) {
+      // TODO: ...acá iria la suscripcion
+      setMsgToast("Suscripto exitosamente!");
+      document.getElementById("recibir-ofertas-form").reset();
+    } else {
+      setMsgToast("Formato de mail no válido");
+    }
     showToast();
   };
 
@@ -34,7 +32,11 @@ export const RecibirOfertas = () => {
         <div className="col-11 d-flex justify-content-center">
           <div className="col col-sm-10 col-md-10 col-lg-8 col-xl-7">
             <h1 className="my-0 text-center">¡Recibí nuestras ofertas!</h1>
-            <form className="d-flex justify-content-center" onSubmit={update}>
+            <form
+              id="recibir-ofertas-form"
+              className="d-flex justify-content-center"
+              onSubmit={suscribir}
+            >
               <input
                 className="my-0 mt-2 me-1 px-4"
                 type="email"
