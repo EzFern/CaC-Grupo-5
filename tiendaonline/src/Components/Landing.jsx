@@ -15,7 +15,7 @@ import { ResetCarrito } from "./ResetCarrito"
 export const Landing = () => {
 
   return (
-    <>      
+    <div className="container">  
       <EncabezadoDePagina/>
       <Menu/>
       <Carrousel />
@@ -27,6 +27,6 @@ export const Landing = () => {
       <RecibirOfertas />
       <SeguinosEn />
       <PieDePagina />
-    </>
+    </div>
   )
 }
