@@ -18,11 +18,7 @@ export const Carrousel = () => {
   // todo: revisar esto para que no hayan repeticiones
   // let productosRnd = [prodRnd(), prodRnd(), prodRnd()];
   const [productosRnd, setproductosRnd] = useState([]);
-  console.log("ProductosRnd:", productosRnd);
-
-  // const cargarProductosRnd = () => {
-  //   setproductosRnd([prodRnd(), prodRnd(), prodRnd()]);
-  // };
+  // console.log("ProductosRnd:", productosRnd);
 
   // todo: revisar esto
   useEffect(() => {
@@ -37,26 +33,6 @@ export const Carrousel = () => {
         className="carousel slide carousel-fade"
         data-bs-ride="carousel"
       >
-        {/* Indicadores de carrusel */}
-        <div className="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="0"
-            className="active"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="2"
-          ></button>
-        </div>
-
         {/* presentacion carrusel */}
         <div className="carousel-inner">
           {/* iteracion sobre productosRnd[] para crear diapositivas (solo 3?) */}
@@ -68,9 +44,11 @@ export const Carrousel = () => {
                 backgroundImage: `url(${e.img})`,
               }}
             >
-              <div className="carousel-caption  d-md-block">
+              <div className="carousel-caption d-md-block">
                 <p>{e.descripcion}</p>
-                <h1>{e.titulo}</h1>
+                <h1 className="text-uppercase">
+                  <b>{e.titulo}</b>
+                </h1>
               </div>
             </div>
           ))}
