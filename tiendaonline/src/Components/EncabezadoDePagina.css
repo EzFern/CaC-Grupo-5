@@ -43,7 +43,15 @@ ul {
     justify-content: center;
 }
 
-.nav-link{
+.nav-link {
+    color: #fcfcfc;
+}
+
+.nav-link:hover {
+    color: #fcfcfc;
+}
+
+.nav-link:active {
     color: #fcfcfc;
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
 import "./EncabezadoDePagina.css";
+import {Link} from "react-router-dom";
 
 export const EncabezadoDePagina = () => {
   return (
@@ -44,10 +45,10 @@ export const EncabezadoDePagina = () => {
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/Carrito">
                 <img className="img-nav-list" src="/src/assets/iconos/Carrito.png"/>
                 CARRITO
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
