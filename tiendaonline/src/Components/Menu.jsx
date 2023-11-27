@@ -2,7 +2,7 @@ import "./Menu.css";
 export const Menu = () => {
   return (
     <nav className="nav navbar-expand-lg w-100" id="nav">
-      <li className="nav-item dropdown col">
+      <li className="nav-item dropdown col bg-white d-flex justify-content-start">
         <a
           className="nav-link dropdown-toggle text-danger fw-bold px-4 fs-5"
           href="#"
