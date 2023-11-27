@@ -188,7 +188,7 @@ export const productos = {
             {
                 id: 'P8',
                 titulo: 'Pizza Capricciosa',
-                img: new URL('https://w7.pngwing.com/pngs/451/383/png-transparent-pizza-capricciosa-ham-salami-pasta-pizza-food-recipe-pizza-delivery.png'),
+                img: new URL('https://spicygoulash.com/wp-content/uploads/pizza-capricciosa.jpg'),
                 descripcion: 'Una pizza clásica con alcachofas y jamón.',
                 combo: 'Refresco',
                 ingredientes: 'Mozzarella, tomate, jamón, alcachofas',
