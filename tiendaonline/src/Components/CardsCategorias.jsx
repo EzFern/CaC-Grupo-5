@@ -44,7 +44,7 @@ export const CardsCategorias = () => {
   const ContenedorCardsCategorias = ({ children }) => {
     return (
       <div className="container-fluid">
-        <div className="row cards_categorias mx-0 my-3">
+        <div className="row cards_categorias my-3">
           <CardCategoria cat={categorias[0]} />
           <CardCategoria cat={categorias[1]} derecha={1} />
         </div>
