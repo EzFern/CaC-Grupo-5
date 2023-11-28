@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./PieDePagina.css";
 
 export const PieDePagina = () => {
@@ -10,7 +11,7 @@ export const PieDePagina = () => {
           <div className="row">
             <div className="col-md-3 col-sm-6">
               <div className="widget_text">
-                <p className="widget-title"><span>Contacto</span></p>
+                <Link to={`/contacto`}><p className="widget-title"><span>Contacto</span></p></Link>
                 <div className="textwidget">
                   <p>Av. Libertador 1562 - CABA <br></br> <a href="tel:549 01230456">Tel. (549) 15 01230456</a> <br></br> <a href="mailto:mail@fastfoodfive.com.ar">mail@fastfoodfive.com.ar</a>  </p>
                 </div>
@@ -22,8 +23,8 @@ export const PieDePagina = () => {
                 <p className="widget-title"><span>Formas de Pago</span></p>
                 <div className="textwidget">
                 <p>Efectivo o transferencia bancaria.</p>
-                <p>COMO COMPRAR</p>
-                <p>Preguntas frecuentes</p>
+                <Link to={`/como-comprar`}><p>COMO COMPRAR</p></Link>
+                <Link to={`/preguntas-frecuentes`}><p>Preguntas frecuentes</p></Link>
                 </div>
               </div>
             </div>
