@@ -41,9 +41,17 @@ export const EncabezadoDePagina = () => {
                 MI CUENTA
               </a>
               <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="#">Iniciar Sesion</a></li>
+                <li>
+                <Link to="/inicioSesion">
+                  <a className="dropdown-item" href="#">Iniciar Sesion</a>
+                </Link>
+                </li>
                 <li><hr className="dropdown-divider"></hr></li>
-                <li><a className="dropdown-item" href="#">Registrarme</a></li>
+                <li>
+                <Link to="/registro">
+                  <a className="dropdown-item" href="#">Registrarme</a>              
+                </Link>
+              </li>
               </ul>
             </li>
             <li className="nav-item">

@@ -10,6 +10,9 @@ import { PreguntasFrecuentes } from "./Components/PreguntasFrecuentes.jsx";
 import { BasesYCondiciones } from "./Components/BasesYCondiciones.jsx";
 import { AcercaDe } from "./Components/AcercaDe.jsx";
 import { Layout } from "./Components/Layout.jsx";
+import { Registro } from "./Components/Registro.jsx";
+import { InicioSesion } from "./Components/InicioSesion.jsx";
+
 
 function App() {
   return (
@@ -25,6 +28,8 @@ function App() {
           <Route path="/preguntas-frecuentes" element={<PreguntasFrecuentes />}/>
           <Route path="/acerca-de" element={<AcercaDe />} />
           <Route path="/bases-y-condiciones" element={<BasesYCondiciones />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/inicioSesion" element={<InicioSesion />} />
         </Route>
       </Routes>
     </Router>
