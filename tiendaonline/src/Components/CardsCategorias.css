@@ -14,13 +14,13 @@
 }
 
 .card_categoria div {
-  color: white;
+  color: #fcfcfc;
   /* background-color: rgba(100, 10, 10, 0.9); */
 }
 
 .card_categoria h1 {
   font-weight: 500;
-  color: white;
+  color: #fcfcfc;
   /* background-color: aqua; */
   text-shadow: 0px 1px 4px rgba(0, 0, 0, .2);
 }
@@ -32,7 +32,7 @@
   border: 0;
   padding: 0.3rem;
   width: 150px;
-  color: white;
+  color: #fcfcfc;
   background-color: rgba(200, 200, 200, 0.4);
   text-shadow: 0px 1px 4px rgba(0, 0, 0, .2);
 }
