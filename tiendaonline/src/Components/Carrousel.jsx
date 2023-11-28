@@ -4,74 +4,69 @@ import "./Carrousel.css";
 
 export const Carrousel = () => {
   const categorias = Object.keys(productos); // obtener categorias[]
-  const rnd = (
-    // Funcion random con min, max
-    max = 10,
-    min = 0
-  ) => Math.floor(Math.random() * (max - min)) + min;
+  // Funcion random con min, max
+  const rnd = (max = 10, min = 0) =>
+    Math.floor(Math.random() * (max - min)) + min;
+  // Funcion producto random {}
   const prodRnd = () => {
-    // Funcion producto random {}
     let catRnd = categorias[rnd(categorias.length)]; // categoria random
     return productos[catRnd][rnd(productos[catRnd].length)]; // prod random en categoria
   };
-
-  // todo: revisar esto para que no hayan repeticiones
-  // let productosRnd = [prodRnd(), prodRnd(), prodRnd()];
+  const idCarousel = "carousel" + rnd(100); // id de carrousel aleatorio
   const [productosRnd, setproductosRnd] = useState([]);
-  // console.log("ProductosRnd:", productosRnd);
 
-  // todo: revisar esto
   useEffect(() => {
     setproductosRnd([prodRnd(), prodRnd(), prodRnd()]);
   }, []);
 
-  return (
-    <>
-      {/* Carousel */}
+  const CarouselItem = (props) => {
+    const act = props?.id === 0 || !props?.id ? `active` : ``;
+    const imgurl = props?.producto?.img || "sin img";
+    const titulo = props?.producto?.titulo || "sin titulo";
+    const desc = props?.producto?.descripcion || "sin descripcion";
+    return (
       <div
-        id={"demo" + rnd(100)}
-        className="carousel slide carousel-fade"
-        data-bs-ride="carousel"
+        className={"carousel-item " + act}
+        style={{ backgroundImage: `url(${imgurl})` }}
       >
-        {/* presentacion carrusel */}
-        <div className="carousel-inner">
-          {/* iteracion sobre productosRnd[] para crear diapositivas (solo 3?) */}
-          {productosRnd.map((e, i) => (
-            <div
-              key={i}
-              className={i == 0 ? "carousel-item active" : "carousel-item"}
-              style={{
-                backgroundImage: `url(${e.img})`,
-              }}
-            >
-              <div className="carousel-caption d-md-block">
-                <p>{e.descripcion}</p>
-                <h1 className="text-uppercase">
-                  <b>{e.titulo}</b>
-                </h1>
-              </div>
-            </div>
-          ))}
+        <div className="carousel-caption text-break position-relative text-start start-0 top-0  px-4 py-4 my-4 mx-5">
+          <p className="fs-4 text-capitalize">{desc}</p>
+          <h1 className="text-uppercase">
+            <b>{titulo}</b>
+          </h1>
         </div>
-
-        {/* controles carrusel derecha/izquierda */}
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#demo"
-          data-bs-slide="prev"
-        >
-          <span className="carousel-control-prev-icon"></span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#demo"
-          data-bs-slide="next"
-        >
-          <span className="carousel-control-next-icon"></span>
-        </button>
       </div>
-    </>
+    );
+  };
+
+  const CarrouselButton = (props) => {
+    const btType = props?.type ? "next" : "prev";
+    return (
+      <button
+        className={"carousel-control-" + btType}
+        type="button"
+        data-bs-target={"#" + idCarousel}
+        data-bs-slide={btType}
+      >
+        <span className={"carousel-control-" + btType + "-icon"}></span>
+      </button>
+    );
+  };
+
+  // Carousel
+  return (
+    <div
+      id={idCarousel}
+      className="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+    >
+      <div className="carousel-inner">
+        {productosRnd.map((e, i) => (
+          <CarouselItem key={i} producto={e} />
+        ))}
+      </div>
+      <CarrouselButton />
+      <CarrouselButton type={1} />
+    </div>
   );
 };
