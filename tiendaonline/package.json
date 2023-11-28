@@ -9,12 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-<<<<<<< HEAD
-  "dependencies": {
-    "gh-pages": "^6.1.0",
-=======
   "dependencies": {    
->>>>>>> 6267387459363bcc444c7e873add004029b950a7
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.19.0"
