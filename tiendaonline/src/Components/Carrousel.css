@@ -5,36 +5,26 @@
 .carousel-item {
   height: 420px;
   overflow: hidden;
-  background-color: rgba(10, 10, 10, 0.9);
+  background-color: rgba(100, 10, 10, 1);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .carousel-caption {
-  font-weight: bold !important;
   /* background-color: rgba(1, 100, 1, .5); */
-  padding: 1rem;
-  top: 6% !important;
-  bottom: 25% !important;
-  right: 45% !important;
-  left: 10% !important;
-  text-align: left !important;
   text-shadow: 0px 1px 4px rgba(0, 0, 0, .3);
 }
 
 .carousel-caption h1 {
-  font-size: 3.5rem !important;
   /* background-color: rgba(1, 1, 1, 0.5); */
+  font-size: 3.5rem !important;
   color: #EF8100 ;
   line-height: 78%;
 }
 
 .carousel-caption p {
   /* background-color: rgba(100, 1, 1, 0.5); */
-  font-size: 1.5rem !important;
   line-height: 96%;
-  font-weight: 600;
   margin-bottom: -0.01rem;
-  text-transform: capitalize;
 }
