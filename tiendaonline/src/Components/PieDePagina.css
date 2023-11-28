@@ -1,0 +1,14 @@
+.piedepagina * {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+  }
+  
+  .piedepagina {
+    height: 200px;
+    background-color: #B90000;
+    padding-top: 2rem;
+  }
+
+  footer {
+    display: inline-table;
+  }
