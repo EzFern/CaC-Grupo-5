@@ -9,9 +9,9 @@ export const SeguinosEn = () => {
         <div className="col-11 d-flex justify-content-center">
           <div className="col d-flex justify-content-center">
             <div className="row align-items-center ">
-              <h2 className="col-xss-12 col-sm-6 text-sm-end text-center">
+              <h3 className="col-xss-12 col-sm-6 text-sm-end text-center">
                 Seguinos en:
-              </h2>
+              </h3>
               <div className="col-xss-12  col-sm-6 d-flex justify-content-center">
                 <div className="ps-4">
                   <Link to={"/"}>
