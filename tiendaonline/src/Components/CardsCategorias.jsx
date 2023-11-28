@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import "./CardsCategorias.css";
 import { productos } from "../Utils/Database";
 
-// obtener categorias[ {'titulo':'...' , 'img_url':'...'}, ... ]
-const categorias = Object.keys(productos).map((e) => ({
-  titulo: e,
-  img_url: productos[e][ Math.floor(Math.random() * productos[e].length)].img,
-}));
-
 export const CardsCategorias = () => {
+  // obtener categorias[ {'titulo':'...' , 'img_url':'...'}, ... ]
+  const categorias = Object.keys(productos).map((e) => ({
+    titulo: e,
+    img_url: productos[e][Math.floor(Math.random() * productos[e].length)].img,
+  }));
+
   const [catgs, setCatgs] = useState(Object.keys(productos));
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export const CardsCategorias = () => {
       <div className="col-12 col-sm-6 col-md-6 my-2 mx-0">
         <div
           className={
-            "card_categoria  px-4 d-flex flex-grow-1 align-items-center text-capitalize " +
+            "card_categoria px-5 d-flex flex-grow-1 align-items-center text-capitalize " +
             der
           }
           style={{
