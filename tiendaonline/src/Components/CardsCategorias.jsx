@@ -6,7 +6,7 @@ import { productos } from "../Utils/Database";
 // obtener categorias[ {'titulo':'...' , 'img_url':'...'}, ... ]
 const categorias = Object.keys(productos).map((e) => ({
   titulo: e,
-  img_url: productos[e][0].img,
+  img_url: productos[e][ Math.floor(Math.random() * productos[e].length)].img,
 }));
 
 export const CardsCategorias = () => {
@@ -20,10 +20,10 @@ export const CardsCategorias = () => {
     let der = derecha ? " justify-content-end text-end " : "";
 
     return (
-      <div className="col-12 col-sm-6 col-md-6 my-4 ">
+      <div className="col-12 col-sm-6 col-md-6 my-2 mx-0">
         <div
           className={
-            "card_categoria mx-1 px-5 d-flex flex-grow-1 align-items-center text-capitalize " +
+            "card_categoria  px-4 d-flex flex-grow-1 align-items-center text-capitalize " +
             der
           }
           style={{
@@ -44,7 +44,7 @@ export const CardsCategorias = () => {
   const ContenedorCardsCategorias = ({ children }) => {
     return (
       <div className="container-fluid">
-        <div className="row cards_categorias mx-0 my-3">
+        <div className="row cards_categorias my-3">
           <CardCategoria cat={categorias[0]} />
           <CardCategoria cat={categorias[1]} derecha={1} />
         </div>

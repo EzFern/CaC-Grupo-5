@@ -23,8 +23,10 @@ export const EncabezadoDePagina = () => {
           </div>
 
           <div className="nav-logo-container">
+            <Link to="/">
             <img className="nav-logo-img" 
               src="/src/assets/iconos/Logo.png" alt="Fast Food 5"/>
+              </Link>
           </div>
 
           <ul className="nav nav-underline justify-content-end">
