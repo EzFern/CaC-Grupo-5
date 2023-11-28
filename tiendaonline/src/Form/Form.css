@@ -1,5 +1,5 @@
 * {
-    background-color: #fff;
+    background-color: #fcfcfc;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -52,10 +52,10 @@ textarea:focus {
 
 .buttonForm {
     display: flex;
-    background-color: red;
+    background-color: #b90000;
     border: none;
     padding: 10px 45px;
-    color: #fff;
+    color: #fcfcfc;
     transition: 0.5s;
     float: right;
     margin-bottom: 10px;
@@ -70,11 +70,11 @@ textarea:focus {
 
 .messageSubmit {
     width: 300px;
-    background-color: red;
+    background-color: #b90000;
     border: none;
     border-radius: 20px;
     padding: 20px 15px;
-    color: #fff;
+    color: #fcfcfc;
     font-weight: 100;
     font-size: 1.1rem;
     animation: fadeIn 1s ease-in-out;

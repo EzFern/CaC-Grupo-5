@@ -1,11 +1,11 @@
 .recibir_ofertas * {
   background-color: rgba(0, 0, 0, 0);
-  color: white;
+  color: #fcfcfc;
 }
 
 .recibir_ofertas {
   height: 200px;
-  background-color: #ed8000;
+  background-color: #ef8100;
 }
 
 /* .recibir_ofertas div {
@@ -23,7 +23,7 @@
 .recibir_ofertas input {
   height: 50px;
   color: black;
-  background-color: white;
+  background-color: #fcfcfc;
   border-radius: 10px;
   border-style: none;
 }
@@ -31,7 +31,7 @@
 .recibir_ofertas button {
   height: 50px;
   color: black;
-  background-color: white;
+  background-color: #fcfcfc;
   border-radius: 10px;
   border-style: none;
 }

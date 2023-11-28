@@ -31,7 +31,7 @@ export const RecibirOfertas = () => {
       <div className="recibir_ofertas d-flex align-items-center justify-content-center">
         <div className="col-11 d-flex justify-content-center">
           <div className="col col-sm-10 col-md-10 col-lg-8 col-xl-7">
-            <h1 className="my-0 text-center">¡Recibí nuestras ofertas!</h1>
+            <h3 className="my-0 text-center">¡Recibí nuestras ofertas!</h3>
             <form
               id="recibir-ofertas-form"
               className="d-flex justify-content-center"
