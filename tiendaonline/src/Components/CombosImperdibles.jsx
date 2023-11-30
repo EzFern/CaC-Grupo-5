@@ -71,10 +71,10 @@ export const CombosImperdibles = ({categoriaSolicitada}) => {
             <div key={producto.id} className="col">
               <Link to={`/detalles/${producto.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <img src={producto.img} className="card-img-top" alt={producto.titulo} style={{ objectFit: 'cover', height: '200px', borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }} />
-                <h5 className="card-title text-center">{producto.titulo}</h5>
+                <h5 className="card-title text-center text-nowrap">{producto.titulo}</h5>
               </Link>
               <div className="card-body mb-5">
-                <p className="card-text text-center">{producto.combo !== "" ? `+ ${producto.combo}` : ""}</p>
+                <p className="card-text text-center text-nowrap">{producto.combo !== "" ? `+ ${producto.combo}` : ""}</p>
                 {producto.descuento > 0 ? (
                   <p className="text-success fw-bold text-center">-{producto.descuento}% OFF</p>
                 ) : (
@@ -109,7 +109,7 @@ export const CombosImperdibles = ({categoriaSolicitada}) => {
                   </div>
                   <button
                     type="button"
-                    className="btn btn-danger"
+                    className="btn btn-danger text-center text-nowrap"
                     id={`liveToastBtn${index}`}
                     onClick={() => handleAgregarCarrito(index)}
                   >
