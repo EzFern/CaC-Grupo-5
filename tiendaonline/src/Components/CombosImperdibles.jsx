@@ -68,7 +68,7 @@ export const CombosImperdibles = ({categoriaSolicitada}) => {
       <div className="container">
         <div className="row g-4">
           {productosImperdiblesAleatorios.map((producto, index) => (
-            <div key={producto.id} className="col">
+            <div key={producto.id} className="col-md-6 col-lg-3">
               <Link to={`/detalles/${producto.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <img src={producto.img} className="card-img-top" alt={producto.titulo} style={{ objectFit: 'cover', height: '200px', borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }} />
                 <h5 className="card-title text-center text-nowrap">{producto.titulo}</h5>
@@ -85,22 +85,22 @@ export const CombosImperdibles = ({categoriaSolicitada}) => {
                     ? `$${(producto.precio - (producto.precio * producto.descuento) / 100) * cantidades[index]}`
                     : `$${producto.precio * cantidades[index]}`}
                 </p>
-                <div className="card-body d-flex justify-content-center">
+                <div className="card-body d-flex justify-content-around w-100">
                   <div className="btn-group me-2" role="group" aria-label="btnGroup">
                     <button
                       type="button"
-                      className="btn btn-secondary"
+                      className="btn btn-secondary btn-sm"
                       onClick={() => restarProducto(index)}
                       disabled={cantidades[index] === 1 ? true : false}
                     >
                       -
                     </button>
-                    <button type="button" className="btn btn-light" disabled>
+                    <button type="button" className="btn btn-light btn-sm" disabled>
                       {cantidades[index]}
                     </button>
                     <button
                       type="button"
-                      className="btn btn-secondary"
+                      className="btn btn-secondary btn-sm"
                       onClick={() => sumarProducto(index)}
                       disabled={cantidades[index] >= producto.stock ? true : false}
                     >
