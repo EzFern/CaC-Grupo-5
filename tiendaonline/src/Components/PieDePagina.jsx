@@ -6,8 +6,8 @@ export const PieDePagina = () => {
   return (
     <div className="d-flex justify-content-center db-danger">
 
-      <footer className="piedepagina container text-center ">
-        <div className="container">
+      <footer className="container-lg piedepagina text-center">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-md-3 col-sm-6">
               <div className="widget_text">

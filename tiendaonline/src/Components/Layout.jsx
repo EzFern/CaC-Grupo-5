@@ -5,11 +5,13 @@ import { PieDePagina } from "./PieDePagina";
 
 export const Layout = () => {
   return (
-    <div className="container-lg">
+    <div className="d-flex flex-column min-vh-100">
       <EncabezadoDePagina />
       <Menu />
-      <Outlet />
-      <PieDePagina />
+      <Outlet />      
+      <div className="mt-auto">
+        <PieDePagina />
+      </div>      
     </div>
   );
 };
