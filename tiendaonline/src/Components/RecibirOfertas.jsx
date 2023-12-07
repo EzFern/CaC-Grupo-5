@@ -46,7 +46,7 @@ export const RecibirOfertas = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <button className="btn btn-secondary mt-2 px-3 py-2">
-                <img src="/src/assets/iconos/Flecha.png" width="25" />
+                <img src="/assets/iconos/Flecha.png" width="25" />
               </button>
             </form>
           </div>
