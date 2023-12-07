@@ -16,7 +16,7 @@ import { InicioSesion } from "./Components/InicioSesion.jsx";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/CaC-Grupo-5">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Landing />} />
