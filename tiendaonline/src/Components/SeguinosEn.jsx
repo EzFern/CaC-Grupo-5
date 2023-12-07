@@ -15,17 +15,17 @@ export const SeguinosEn = () => {
               <div className="col-xss-12  col-sm-6 d-flex justify-content-center">
                 <div className="ps-4">
                   <Link to={"/"}>
-                    <img src="/src/assets/iconos/Facebook.png" alt="fb" />
+                    <img src="/assets/iconos/Facebook.png" alt="fb" />
                   </Link>
                 </div>
                 <div className="ps-4">
                   <Link to={"/"}>
-                    <img src="/src/assets/iconos/Instagram.png" alt="ig" />
+                    <img src="/assets/iconos/Instagram.png" alt="ig" />
                   </Link>
                 </div>
                 <div className="ps-4">
                   <Link to={"/"}>
-                    <img src="/src/assets/iconos/X.png" alt="x" />
+                    <img src="/assets/iconos/X.png" alt="x" />
                   </Link>
                 </div>
               </div>

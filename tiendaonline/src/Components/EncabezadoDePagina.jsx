@@ -16,7 +16,7 @@ export const EncabezadoDePagina = () => {
                   placeholder="Buscar"
                 />
                 <button className="btn btn-secondary mt-2 px-3 py-2">
-                  <img src="/src/assets/iconos/Lupa.png" width="30" />
+                  <img src="/assets/iconos/Lupa.png" width="30" />
                 </button>
               </div>
             </div>
@@ -25,7 +25,7 @@ export const EncabezadoDePagina = () => {
           <div className="nav-logo-container">
             <Link to="/">
             <img className="nav-logo-img" 
-              src="/src/assets/iconos/Logo.png" alt="Fast Food 5"/>
+              src="/assets/iconos/Logo.png" alt="Fast Food 5"/>
               </Link>
           </div>
 
@@ -37,7 +37,7 @@ export const EncabezadoDePagina = () => {
                 role="button"
                 aria-expanded="false"
               >
-                <img className="img-nav-list" src="/src/assets/iconos/Perfil.png"/>{" "}
+                <img className="img-nav-list" src="/assets/iconos/Perfil.png"/>{" "}
                 MI CUENTA
               </a>
               <ul className="dropdown-menu">
@@ -56,7 +56,7 @@ export const EncabezadoDePagina = () => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/Carrito">
-                <img className="img-nav-list" src="/src/assets/iconos/Carrito.png"/>
+                <img className="img-nav-list" src="/assets/iconos/Carrito.png"/>
                 CARRITO
               </Link>
             </li>
