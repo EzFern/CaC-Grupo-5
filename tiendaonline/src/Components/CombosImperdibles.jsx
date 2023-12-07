@@ -64,43 +64,44 @@ export const CombosImperdibles = ({categoriaSolicitada}) => {
 
   return (
     <>
-      <h2 className="text-center mt-2 mb-4">COMBOS <strong className="text-danger">IMPERDIBLES</strong></h2>
-      <div className="container">
-        <div className="row g-4">
+      <h2 className="text-center mt-2 mb-2">COMBOS <strong className="text-danger">IMPERDIBLES</strong></h2>
+      <div className="container-fluid bg-primary ">
+        <div className="row">
           {productosImperdiblesAleatorios.map((producto, index) => (
-            <div key={producto.id} className="col-md-6 col-lg-3">
+            <div key={producto.id} className="col-md-6 col-lg-3 mt-3 mb-4 py-2">
+              <div className="overflow-hidden" style={{ minHeight: '420px', borderRadius: '10px', boxShadow: '0px 1px 2px rgba(0,0,0,0.3)' }}>
               <Link to={`/detalles/${producto.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-                <img src={producto.img} className="card-img-top" alt={producto.titulo} style={{ objectFit: 'cover', height: '200px', borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }} />
-                <h5 className="card-title text-center text-nowrap">{producto.titulo}</h5>
+                <img src={producto.img} className="card-img-top" alt={producto.titulo} style={{ objectFit: 'cover', height: '200px', borderTopLeftRadius: '0px', borderTopRightRadius: '0px' }} />
+                <h6 className="card-title fs-4 text-center text-noXwrap text-break pt-1 mx-1 px-1 ">{producto.titulo}</h6>
               </Link>
-              <div className="card-body mb-5">
-                <p className="card-text text-center text-nowrap">{producto.combo !== "" ? `+ ${producto.combo}` : ""}</p>
+              <div className="card-body mb-3">
+                <p className="card-text text-center text-nowrap my-0 py-0">{producto.combo !== "" ? `+ ${producto.combo}` : ""}</p>
                 {producto.descuento > 0 ? (
-                  <p className="text-success fw-bold text-center">-{producto.descuento}% OFF</p>
+                  <p className="text-success fw-bold text-center my-0 py-0">-{producto.descuento}% OFF</p>
                 ) : (
                   ""
                 )}
-                <p className="card-text text-center fw-bold text-warning fs-2">
+                <p className="card-text text-center fw-bold text-warning fs-2 my-1 py-0">
                   {producto.descuento > 0
                     ? `$${(producto.precio - (producto.precio * producto.descuento) / 100) * cantidades[index]}`
                     : `$${producto.precio * cantidades[index]}`}
                 </p>
-                <div className="card-body d-flex justify-content-around w-100">
-                  <div className="btn-group me-2" role="group" aria-label="btnGroup">
+                <div className="card-body d-flex justify-content-center ">
+                  <div className="btn-group me-1 mx-1 px-0" role="group" aria-label="btnGroup">
                     <button
                       type="button"
-                      className="btn btn-secondary btn-sm"
+                      className="btn btn-secondary btn-sm mx-0 px-2"
                       onClick={() => restarProducto(index)}
                       disabled={cantidades[index] === 1 ? true : false}
                     >
                       -
                     </button>
-                    <button type="button" className="btn btn-light btn-sm" disabled>
+                    <button type="button" className="btn btn-light btn-sm mx-0 px-1" disabled>
                       {cantidades[index]}
                     </button>
                     <button
                       type="button"
-                      className="btn btn-secondary btn-sm"
+                      className="btn btn-secondary btn-sm mx-0 px-s"
                       onClick={() => sumarProducto(index)}
                       disabled={cantidades[index] >= producto.stock ? true : false}
                     >
@@ -109,13 +110,14 @@ export const CombosImperdibles = ({categoriaSolicitada}) => {
                   </div>
                   <button
                     type="button"
-                    className="btn btn-danger text-center text-nowrap"
+                    className="btn btn-sm btn-danger text-center text-nowrap mx-0"
                     id={`liveToastBtn${index}`}
                     onClick={() => handleAgregarCarrito(index)}
                   >
                     Agregar al carrito
                   </button>
                 </div>
+              </div>
               </div>
             </div>
           ))}

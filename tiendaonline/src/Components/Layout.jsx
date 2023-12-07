@@ -5,7 +5,7 @@ import { PieDePagina } from "./PieDePagina";
 
 export const Layout = () => {
   return (
-    <div className="container-lg d-flex flex-column min-vh-100">
+    <div className="container-xl d-flex flex-column min-vh-100 px-0 px-sm-0">
       <EncabezadoDePagina />
       <Menu />
       <Outlet />      

@@ -27,7 +27,7 @@ export const RecibirOfertas = () => {
   };
 
   return (
-    <div>
+    <>
       <div className="recibir_ofertas d-flex align-items-center justify-content-center">
         <div className="col-11 d-flex justify-content-center">
           <div className="col col-sm-10 col-md-10 col-lg-8 col-xl-7">
@@ -76,6 +76,6 @@ export const RecibirOfertas = () => {
         </div>
       </div>
       {/* ---toast */}
-    </div>
+    </>
   );
 };
