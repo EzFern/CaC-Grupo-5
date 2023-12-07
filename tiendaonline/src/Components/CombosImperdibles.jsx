@@ -135,7 +135,7 @@ export const CombosImperdibles = ({categoriaSolicitada}) => {
           <div className="toast-body text-center">            
             El pedido fue agregado a tu carrito!
             <br />
-            <a href="/carrito"><button className="btn btn-primary btn-sm mt-1">Ir al carrito</button></a>
+            <a href="CaC-Grupo-5/carrito"><button className="btn btn-primary btn-sm mt-1">Ir al carrito</button></a>
           </div>
         </div>
       </div>
