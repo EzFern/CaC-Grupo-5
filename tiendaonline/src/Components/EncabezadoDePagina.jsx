@@ -6,30 +6,29 @@ export const EncabezadoDePagina = () => {
   return (
     <>
       <header>
-        <nav className="navbar">
-          <div className="buscar_antojo d-flex align-items-left justify-content-left">
-            <div className="col-11 d-flex justify-content-left">
-              <div className="d-flex justify-content-left">
-                <input className="my-0 mt-2 me-1 px-4"
-                  type="Search"
-                  name="Buscador"
-                  placeholder="Buscar"
+        <nav className="navbar ps-4 pe-4">
+
+          <div className="buscar_antojo col-12 col-sm-7 col-md-3 col-lg-3 d-flex align-items-left  justify-content-left m-auto">
+            <div class="input-group mx-3">
+              <input className="form-control mt-0 pl-1"
+                type="Search"
+                name="Buscador"
+                placeholder="Buscar"
                 />
-                <button className="btn btn-secondary mt-2 px-3 py-2">
-                  <img src="/assets/iconos/Lupa.png" width="30" />
-                </button>
-              </div>
+              <button className="btn btn-outline-secondary">
+                <img src="/assets/iconos/Lupa.png" width="30" />
+              </button>
             </div>
           </div>
 
-          <div className="nav-logo-container">
+          <div className="nav-logo-container m-auto text-center col-md-5 col-lg-4">
             <Link to="/">
             <img className="nav-logo-img" 
               src="/assets/iconos/Logo.png" alt="Fast Food 5"/>
               </Link>
           </div>
 
-          <ul className="nav nav-underline justify-content-end">
+          <ul className="nav nav-underline justify-content-enXd justify-content-center text-center col-12 col-sm-12 col-md-4 col-lg-3 ">
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle"
                 data-bs-toggle="dropdown"
@@ -38,7 +37,9 @@ export const EncabezadoDePagina = () => {
                 aria-expanded="false"
               >
                 <img className="img-nav-list" src="/assets/iconos/Perfil.png"/>{" "}
-                MI CUENTA
+                <div>
+                  MI CUENTA
+                </div>
               </a>
               <ul className="dropdown-menu">
                 <li>
@@ -57,7 +58,9 @@ export const EncabezadoDePagina = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/Carrito">
                 <img className="img-nav-list" src="/assets/iconos/Carrito.png"/>
-                CARRITO
+                <div>
+                  CARRITO
+                </div>
               </Link>
             </li>
           </ul>
