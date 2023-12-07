@@ -72,7 +72,7 @@ export const CombosImperdibles = ({categoriaSolicitada}) => {
               <div className="overflow-hidden" style={{ minHeight: '420px', borderRadius: '10px', boxShadow: '0px 1px 2px rgba(0,0,0,0.3)' }}>
               <Link to={`/detalles/${producto.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <img src={producto.img} className="card-img-top" alt={producto.titulo} style={{ objectFit: 'cover', height: '200px', borderTopLeftRadius: '0px', borderTopRightRadius: '0px' }} />
-                <h6 className="card-title fs-4 text-center text-noXwrap text-break pt-1 mx-1 px-1 ">{producto.titulo}</h6>
+                <h6 className="card-title fs-4 text-center text-nowrap text-break pt-1 mx-1 px-1 ">{producto.titulo}</h6>
               </Link>
               <div className="card-body mb-3">
                 <p className="card-text text-center text-nowrap my-0 py-0">{producto.combo !== "" ? `+ ${producto.combo}` : ""}</p>
