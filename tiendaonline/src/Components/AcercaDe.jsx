@@ -30,7 +30,7 @@ export const AcercaDe = () => {
             para aplicar y consolidar los conocimientos adquiridos durante
             nuestro estudio en el curso de React de Codo a Codo.
           </p>
-          <img className="logo logo-spin" src="./src/assets/react.svg" alt="" />
+          <img className="logo logo-spin" src="/assets/react.svg" alt="" />
           <h2>Descripción del Proyecto:</h2>
           <p>
             Nuestra aplicación de tienda online está diseñada para proporcionar
@@ -40,7 +40,7 @@ export const AcercaDe = () => {
             los clientes explorar fácilmente productos, agregarlos al carrito de
             compras y realizar transacciones de manera eficiente.
           </p>
-          <img className="logo logo-spin" src="./src/assets/react.svg" alt="" />
+          <img className="logo logo-spin" src="/assets/react.svg" alt="" />
           <h2>Características Destacadas:</h2>
           <p>
             <strong>Componentización Avanzada: </strong>Hemos desglosado la
@@ -64,7 +64,7 @@ export const AcercaDe = () => {
             ciclo de vida de los componentes, los Hooks han mejorado la
             funcionalidad y la respuesta del usuario.
           </p>
-          <img className="logo logo-spin" src="./src/assets/react.svg" alt="" />
+          <img className="logo logo-spin" src="/assets/react.svg" alt="" />
           <h2>Gestión de Proyecto:</h2>
           <p>
             Durante el desarrollo, utilizamos herramientas colaborativas clave
@@ -75,7 +75,7 @@ export const AcercaDe = () => {
             fue fundamental para la gestión de tareas y la planificación,
             asegurando una ejecución sin problemas del proyecto.
           </p>
-          <img className="logo logo-spin" src="./src/assets/react.svg" alt="" />
+          <img className="logo logo-spin" src="/assets/react.svg" alt="" />
           <h2>Desafíos Superados:</h2>
           <p>
             Durante el desarrollo, enfrentamos varios desafíos que fortalecieron
@@ -84,7 +84,7 @@ export const AcercaDe = () => {
             áreas clave en las que aplicamos técnicas avanzadas para superar
             obstáculos y mejorar la eficiencia de la aplicación.
           </p>
-          <img className="logo logo-spin" src="./src/assets/react.svg" alt="" />
+          <img className="logo logo-spin" src="/assets/react.svg" alt="" />
           <h2>Aprendizaje Continuo:</h2>
           <p>
             Este proyecto no solo representa el resultado de nuestros
@@ -99,7 +99,7 @@ export const AcercaDe = () => {
             tanto como nosotros disfrutamos creándola. ¡Gracias por ser parte de
             nuestro viaje en el emocionante mundo de React!
           </p>
-          <img className="logo logo-spin" src="./src/assets/react.svg" alt="" />
+          <img className="logo logo-spin" src="/assets/react.svg" alt="" />
           <h2>Integrantes</h2>
           <ul>
             {integrantes.sort((a, b) => (0.5-Math.random())).map((e, i) => (
@@ -109,7 +109,7 @@ export const AcercaDe = () => {
             ))}
             <img
               className="logo logo-spin"
-              src="./src/assets/react.svg"
+              src="/assets/react.svg"
               alt=""
             />
           </ul>
