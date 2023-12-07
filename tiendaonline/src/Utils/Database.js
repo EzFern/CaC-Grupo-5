@@ -24,7 +24,7 @@ export const productos = {
             precio: 4000,
             descuento: 15,
             stock: 10,
-            imperdible: false
+            imperdible: true
         },
         {
             id: 'H3',
@@ -48,7 +48,7 @@ export const productos = {
             precio: 4200,
             descuento: 8,
             stock: 12,
-            imperdible: false
+            imperdible: true
         },
         {
             id: 'H5',
@@ -72,7 +72,7 @@ export const productos = {
             precio: 4000,
             descuento: 12,
             stock: 7,
-            imperdible: false
+            imperdible: true
         },
         {
             id: 'H7',
@@ -96,7 +96,7 @@ export const productos = {
             precio: 4800,
             descuento: 10,
             stock: 10,
-            imperdible: false
+            imperdible: true
         }
 
     ],
@@ -147,7 +147,7 @@ export const productos = {
                 precio: 3800,
                 descuento: 10,
                 stock: 9,
-                imperdible: false
+                imperdible: true
             },
             {
                 id: 'P5',
@@ -159,7 +159,7 @@ export const productos = {
                 precio: 3500,
                 descuento: 15,
                 stock: 11,
-                imperdible: false
+                imperdible: true
             },
             {
                 id: 'P6',
@@ -183,7 +183,7 @@ export const productos = {
                 precio: 3800,
                 descuento: 12,
                 stock: 10,
-                imperdible: false
+                imperdible: true
             },
             {
                 id: 'P8',
