@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { productos } from '../Utils/Database';
 
 export const DetallesProducto = () => {
@@ -151,7 +151,7 @@ export const DetallesProducto = () => {
               <div className="toast-body text-center">
                 El pedido fue agregado a tu carrito!
                 <br />
-                <a href="/carrito"><button className="btn btn-primary btn-sm mt-1">Ir al carrito</button></a>
+                <Link to="/carrito"><button className="btn btn-primary btn-sm mt-1">Ir al carrito</button></Link>
               </div>
             </div>
           </div>
