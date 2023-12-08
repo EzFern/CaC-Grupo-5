@@ -48,13 +48,13 @@ export const EncabezadoDePagina = () => {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                <Link to="/inicioSesion dropdown-item">
+                <Link to="/inicioSesion" className="dropdown-item">
                   Iniciar Sesion
                 </Link>
                 </li>
                 <li><hr className="dropdown-divider"></hr></li>
                 <li>
-                <Link to="/registro dropdown-item">
+                <Link to="/registro" className="dropdown-item">
                   Registrarme              
                 </Link>
               </li>
