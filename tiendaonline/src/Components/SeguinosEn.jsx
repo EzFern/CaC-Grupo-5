@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./SeguinosEn.css";
 
+import icoFb from "/assets/iconos/Facebook.png"
+import icoIg from "/assets/iconos/Instagram.png"
+import icoX from "/assets/iconos/X.png"
+
 export const SeguinosEn = () => {
   return (
     <>
@@ -15,17 +19,17 @@ export const SeguinosEn = () => {
               <div className="col-xss-12  col-sm-6 d-flex justify-content-center">
                 <div className="ps-4">
                   <Link to={"/"}>
-                    <img src="/assets/iconos/Facebook.png" alt="fb" />
+                    <img src={icoFb} alt="fb" />
                   </Link>
                 </div>
                 <div className="ps-4">
                   <Link to={"/"}>
-                    <img src="/assets/iconos/Instagram.png" alt="ig" />
+                    <img src={icoIg} alt="ig" />
                   </Link>
                 </div>
                 <div className="ps-4">
                   <Link to={"/"}>
-                    <img src="/assets/iconos/X.png" alt="x" />
+                    <img src={icoX} alt="x" />
                   </Link>
                 </div>
               </div>

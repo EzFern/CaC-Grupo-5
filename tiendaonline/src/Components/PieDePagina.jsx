@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./PieDePagina.css";
 
+import logoUrl from "/assets/iconos/Logo.png";
+
 export const PieDePagina = () => {
   return (
     <>
@@ -34,7 +36,7 @@ export const PieDePagina = () => {
             <Link to="/">
               <img
                 className="nav-logo-img"
-                src="/assets/iconos/Logo.png"
+                src={logoUrl}
                 alt="Fast Food 5"
               />
             </Link>
