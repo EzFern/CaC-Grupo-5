@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./RecibirOfertas.css";
 
+import icoFlecha from "/assets/iconos/Flecha.png"
+
+
 export const RecibirOfertas = () => {
   const [msgToast, setMsgToast] = useState("");
   const [email, setEmail] = useState("");
@@ -46,7 +49,7 @@ export const RecibirOfertas = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <button className="btn btn-secondary mt-2 px-3 py-2">
-                <img src="/assets/iconos/Flecha.png" width="25" />
+                <img src={icoFlecha} width="25" />
               </button>
             </form>
           </div>
