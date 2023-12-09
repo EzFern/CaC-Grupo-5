@@ -12,9 +12,19 @@ import { AcercaDe } from "./Components/AcercaDe.jsx";
 import { Layout } from "./Components/Layout.jsx";
 import { Registro } from "./Components/Registro.jsx";
 import { InicioSesion } from "./Components/InicioSesion.jsx";
+import { productos } from "./Utils/Database";
 
+// Agregar BASE_URL a imagenes de productos
+const pathJoin = (paths, sep = "/") => paths.join(sep).replace(/\/{1,}/g, sep);
+const addBaseURL2Products = () => {
+  for (let [key, value] of Object.entries(productos)) {
+    value.map( (e) => (e.img = e.img.startsWith(import.meta.env.BASE_URL)
+      ? e.img : pathJoin([import.meta.env.BASE_URL, e.img])))}
+};
 
 function App() {
+  addBaseURL2Products();
+
   return (
     <Router basename="/CaC-Grupo-5">
       <Routes>
