@@ -33,7 +33,7 @@ export const EncabezadoDePagina = () => {
               </Link>
           </div>
 
-          <ul className="nav nav-underline justify-content-enXd justify-content-center text-center col-12 col-sm-12 col-md-4 col-lg-3 ">
+          <ul className="nav justify-content-enXd justify-content-center text-center col-12 col-sm-12 col-md-4 col-lg-3 ">
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle"
                 data-bs-toggle="dropdown"
