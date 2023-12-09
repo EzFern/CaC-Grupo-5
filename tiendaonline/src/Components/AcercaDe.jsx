@@ -1,5 +1,7 @@
 import React from "react";
 import "./AcercaDe.css";
+import logoReact from "/assets/react.svg";
+import logoVite from "/vite.svg";
 
 const integrantes = [
   { nombre: "Melisa Romina Samanta Herrera Fernández" },
@@ -22,25 +24,24 @@ export const AcercaDe = () => {
   return (
     <div>
       <div className="container-fluid">
-        <div className="row cards_categorias mx-0 my-3 text-center">
+        <div className="row cards_categorias mx-0 my-3 text-left">
           <h2>Acerca de FastFood5</h2>
           <p>
             ¡Bienvenido a nuestra aplicación de tienda online desarrollada con
             React! Este proyecto representa la culminación de nuestros esfuerzos
             para aplicar y consolidar los conocimientos adquiridos durante
-            nuestro estudio en el curso de React de Codo a Codo.
-          </p>
-          <img className="logo logo-spin" src="/assets/react.svg" alt="" />
-          <h2>Descripción del Proyecto:</h2>
-          <p>
-            Nuestra aplicación de tienda online está diseñada para proporcionar
-            a los usuarios una experiencia de compra fluida y atractiva. Hemos
+            nuestro estudio en el curso de React de Codo a Codo. Nuestra
+            aplicación de tienda online está diseñada para proporcionar a los
+            usuarios una experiencia de compra fluida y atractiva. Hemos
             integrado los principios fundamentales de React para construir una
             interfaz de usuario dinámica y altamente interactiva, permitiendo a
             los clientes explorar fácilmente productos, agregarlos al carrito de
             compras y realizar transacciones de manera eficiente.
           </p>
-          <img className="logo logo-spin" src="/assets/react.svg" alt="" />
+          <div className="text-center">
+            <img className="logo logo-spin" src={logoReact} alt="" />
+            <img className="logo logo-spin" src={logoVite} alt="" />
+          </div>
           <h2>Características Destacadas:</h2>
           <p>
             <strong>Componentización Avanzada: </strong>Hemos desglosado la
@@ -64,7 +65,10 @@ export const AcercaDe = () => {
             ciclo de vida de los componentes, los Hooks han mejorado la
             funcionalidad y la respuesta del usuario.
           </p>
-          <img className="logo logo-spin" src="/assets/react.svg" alt="" />
+          <div className="text-center">
+            <img className="logo logo-spin" src={logoReact} alt="" />
+            <img className="logo logo-spin" src={logoVite} alt="" />
+          </div>
           <h2>Gestión de Proyecto:</h2>
           <p>
             Durante el desarrollo, utilizamos herramientas colaborativas clave
@@ -75,7 +79,6 @@ export const AcercaDe = () => {
             fue fundamental para la gestión de tareas y la planificación,
             asegurando una ejecución sin problemas del proyecto.
           </p>
-          <img className="logo logo-spin" src="/assets/react.svg" alt="" />
           <h2>Desafíos Superados:</h2>
           <p>
             Durante el desarrollo, enfrentamos varios desafíos que fortalecieron
@@ -84,7 +87,6 @@ export const AcercaDe = () => {
             áreas clave en las que aplicamos técnicas avanzadas para superar
             obstáculos y mejorar la eficiencia de la aplicación.
           </p>
-          <img className="logo logo-spin" src="/assets/react.svg" alt="" />
           <h2>Aprendizaje Continuo:</h2>
           <p>
             Este proyecto no solo representa el resultado de nuestros
@@ -99,20 +101,26 @@ export const AcercaDe = () => {
             tanto como nosotros disfrutamos creándola. ¡Gracias por ser parte de
             nuestro viaje en el emocionante mundo de React!
           </p>
-          <img className="logo logo-spin" src="/assets/react.svg" alt="" />
-          <h2>Integrantes</h2>
-          <ul>
-            {integrantes.sort((a, b) => (0.5-Math.random())).map((e, i) => (
-              <li key={i}>
-                {e.nombre} {e.email}
-              </li>
-            ))}
-            <img
-              className="logo logo-spin"
-              src="/assets/react.svg"
-              alt=""
-            />
+          <div className="text-center">
+            <img className="logo logo-spin" src={logoReact} alt="" />
+            <img className="logo logo-spin" src={logoVite} alt="" />
+            <img className="logo logo-spin" src={logoReact} alt="" />
+          </div>
+          <h2 className="text-center">Integrantes</h2>
+          <ul className="text-center">
+            {integrantes
+              .sort((a, b) => 0.5 - Math.random())
+              .map((e, i) => (
+                <li key={i}>
+                  {e.nombre} {e.email}
+                </li>
+              ))}
           </ul>
+          <div className="text-center">
+            <img className="logo logo-spin" src={logoVite} alt="" />
+            <img className="logo logo-spin" src={logoReact} alt="" />
+            <img className="logo logo-spin" src={logoVite} alt="" />
+          </div>
         </div>
       </div>
     </div>
