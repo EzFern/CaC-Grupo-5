@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 export const Carrito = () => {
   const [productosCarrito, setProductosCarrito] = useState([]);
@@ -28,14 +28,10 @@ export const Carrito = () => {
 
   // Eliminar un producto del carrito
   const handleEliminarProducto = (index) => {
-    // 1º lo obtiene
     try {
       const carritoActual = JSON.parse(localStorage.getItem("carrito")) || [];
-      // 2º lo verifica en el local storage
       if (Array.isArray(carritoActual)) {
-        // Elimina en la posición index
         carritoActual.splice(index, 1);
-        // Actualiza
         localStorage.setItem("carrito", JSON.stringify(carritoActual));
         setProductosCarrito(carritoActual);
         setCarritoVacio(carritoActual.length === 0);
@@ -57,13 +53,12 @@ export const Carrito = () => {
       productosCarrito.forEach((item) => {
         totalCalculado += item.precio * item.cantidad;
       });
-      return totalCalculado.toFixed(2);
+      setTotal(totalCalculado.toFixed(2));
     };
 
-    setTotal(calcularTotal());
+    calcularTotal();
   }, [productosCarrito]);
 
-  
   const CompraCompleta = () => {
     setShowToast(true);
     setTimeout(() => {
@@ -77,7 +72,6 @@ export const Carrito = () => {
         navigate("/");
       }, 500);
     }, 3000);
-       
   };
 
   const handleCantidadChange = (e, index) => {
@@ -101,8 +95,7 @@ export const Carrito = () => {
         <div>
           <div className="table-responsive">
             <table
-              className="table table-bordered mt-3"
-              style={{ width: "50vw", height: "50vh" }}
+              className="table table-bordered mt-3"              
             >
               <thead>
                 <tr>
@@ -115,16 +108,28 @@ export const Carrito = () => {
               <tbody>
                 {productosCarrito.map((item, index) => (
                   <tr key={index}>
-                    <td className="text-center d-flex align-items-center justify-content-center">
-                      <input
-                        type="number"
-                        value={item.cantidad}
-                        onChange={(e) => handleCantidadChange(e, index)}
-                        min="1"
-                        max="50"
-                        className="form-control-plaintext text-center"
-                        style={{ width: "50px" }}
-                      />
+                    <td className="text-center pt-3">
+                      <div className="btn-group" role="group" aria-label="btnGroup">
+                        <button
+                          type="button"
+                          className="btn btn-secondary btn-sm"
+                          onClick={() => handleCantidadChange({ target: { value: item.cantidad - 1 } }, index)}
+                          disabled={item.cantidad === 1 ? true : false}
+                        >
+                          -
+                        </button>
+                        <button type="button" className="btn btn-light btn-sm" disabled>
+                          {item.cantidad}
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-secondary btn-sm"
+                          onClick={() => handleCantidadChange({ target: { value: item.cantidad + 1 } }, index)}
+                          disabled={item.cantidad >= item.producto.stock ? true : false}
+                        >
+                          +
+                        </button>
+                      </div>
                     </td>
                     <td className="text-start pt-3">
                       <img
