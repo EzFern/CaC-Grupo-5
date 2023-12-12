@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import {useNavigate} from 'react-router-dom'
 
 export const Carrito = () => {
   const [productosCarrito, setProductosCarrito] = useState([]);
   const [total, setTotal] = useState(0);
   const [showToast, setShowToast] = useState(false);
   const [carritoVacio, setCarritoVacio] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     try {
@@ -60,12 +63,21 @@ export const Carrito = () => {
     setTotal(calcularTotal());
   }, [productosCarrito]);
 
-
+  
   const CompraCompleta = () => {
     setShowToast(true);
     setTimeout(() => {
       setShowToast(false);
-    }, 3000); 
+
+      // Limpiar localStorage
+      localStorage.removeItem('carrito');
+
+      // Redirigir a la página principal después de que termine el toast
+      setTimeout(() => {
+        navigate("/");
+      }, 500);
+    }, 3000);
+       
   };
 
   const handleCantidadChange = (e, index) => {
@@ -90,7 +102,7 @@ export const Carrito = () => {
           <div className="table-responsive">
             <table
               className="table table-bordered mt-3"
-              style={{ width: "50vw", height: "25vh" }}
+              style={{ width: "50vw", height: "50vh" }}
             >
               <thead>
                 <tr>
