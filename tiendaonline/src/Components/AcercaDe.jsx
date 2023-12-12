@@ -11,7 +11,6 @@ const integrantes = [
   { nombre: "Romina	Ascurra" },
   { nombre: "Pablo Costa" },
   { nombre: "Eduardo Joaquin Pinto Villegas" },
-  { nombre: "Nahuel	Balderramo" },
   { nombre: "Ezequiel Alexis Fernandez" },
   { nombre: "Fernando	Juárez Data" },
   { nombre: "Jorge Esteban Femenia" },
